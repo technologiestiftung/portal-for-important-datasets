@@ -1,0 +1,18 @@
+#teaser-text{
+	width:100%;
+	max-width:700px;
+	margin:50px auto;
+}
+
+#teaser-text p{
+	padding:0 20px;
+	width:100%;
+	max-width: 100%;
+	font-size:18px;
+	line-height:28px;
+}
+
+#teaser-text h1{
+	padding:0 20px 10px 20px;
+	font-size:32px;
+}

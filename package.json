@@ -1,0 +1,19 @@
+{
+  "name": "datarepo",
+  "version": "1.0.0",
+  "description": "Node server for hosting an open data repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technologiestiftung/data-repo.git"
+  },
+  "author": "Sebastian Meier @seb_meier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/technologiestiftung/data-repo/issues"
+  },
+  "homepage": "https://github.com/technologiestiftung/data-repo#readme"
+}
