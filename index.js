@@ -51,15 +51,15 @@ app.get('/update', function(req, res) {
 			},
 			"dct:issued": "{{TIMESTAMP}}",
 			"dcat:dataset": [
-				"{{URL}}"
+				"{{URL}}" SET AUTO
 			],
 			"dct:isPartOf": [
-				"{{LABURL}}"
+				"{{LABURL}}" SET AUTO
 			],
 		},
 		"dcat:Dataset": [
 			{
-				"dct:identifier": [
+				"dct:identifier": [ SET ATUO
 					"{{URL}}"
 				],
 				"dct:title": [
@@ -83,7 +83,7 @@ app.get('/update', function(req, res) {
 				"dcat:keyword": [
 					"Bodenschutz", "Geodaten", "Grundwasser", "hmbtg", "hmbtg_09_geodaten", "Karte", "opendata", "Thematische Karte", "Umwelt und Klima"
 				],
-				"dct:spatial": [ SET AUTO
+				"dct:spatial": [ SET AUTO only for geojson
 					{
 						"type": "Polygon",
 						"crs": "urn:ogc:def:crs:OGC:1.3:CRS84",
@@ -98,7 +98,9 @@ app.get('/update', function(req, res) {
 				],
 				"dct:modified": "2017-03-01T10:00:00", SET AUTO
 				"dcat:distribution": [
-					"URL-FILE" SET AUTO
+					"URL-FILE" SET AUTO > multiple
+					> files/...
+					> meta.json
 				],
 				"dct:license": [
 					"{{LICENSE}}"
@@ -114,10 +116,7 @@ app.get('/update', function(req, res) {
 				],
 				"dcatde:geocodingText": [
 					"Berlin, Stadt"
-				],
-				"adms:versionNotes": [
-					"Teilweise geänderte Fassung" 
-				],
+				]
 			}
 		]
 	}
