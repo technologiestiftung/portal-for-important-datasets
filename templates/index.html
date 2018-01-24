@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Open Data Portal | Ideation &amp; Prototyping Lab</title>
+        <title>Daten | Ideation &amp; Prototyping Lab</title>
         <meta name="description" content="{{DESCRIPTION}}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,10 +23,10 @@
         <meta property="fb:app_id" content="487094758334595">
         <meta property="og:url" content="http://data.technologiestiftung-berlin.de">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="Open Data Portal | Ideation &amp; Prototyping Lab">
+        <meta property="og:title" content="Daten | Ideation &amp; Prototyping Lab">
         <meta property="og:image" content="http://lab.technologiestiftung-berlin.de/icons/social_media_data.jpg">
         <meta property="og:description" content="{{DESCRIPTION}}">
-        <meta property="og:site_name" content="Open Data Portal | Ideation &amp; Prototyping Lab">
+        <meta property="og:site_name" content="Daten | Ideation &amp; Prototyping Lab">
         <meta property="article:author" content="Sebastian Meier">
 
         <!-- TWITTER -->
@@ -34,12 +34,12 @@
         <meta name="twitter:site" content="@TSBBerlin">
         <meta name="twitter:creator" content="@seb_meier">
         <meta name="twitter:url" content="http://data.technologiestiftung-berlin.de">
-        <meta name="twitter:title" content="Open Data Portal | Ideation &amp; Prototyping Lab">
+        <meta name="twitter:title" content="Daten | Ideation &amp; Prototyping Lab">
         <meta name="twitter:description" content="{{DESCRIPTION}}">
         <meta name="twitter:image" content="http://lab.technologiestiftung-berlin.de/icons/social_media_data.jpg">
 
         <!-- GOOGLE+/SCHEMA.ORG -->
-        <meta itemprop="name" content="Open Data Portal | Ideation &amp; Prototyping Lab">
+        <meta itemprop="name" content="Daten | Ideation &amp; Prototyping Lab">
         <meta itemprop="description" content="{{DESCRIPTION}}">
         <meta itemprop="image" content="http://lab.technologiestiftung-berlin.de/icons/social_media_data.jpg">
 
@@ -72,7 +72,7 @@
             </div></div>
             <div id="nav" class="container">
                 <ul>
-                    <li class="opendata"><a href="http://data.technologiestiftung-berlin.de"><img src="http://localhost:8888/lab-site@tsb@github/docs/images/opendata-icon@2x.png" alt="Open Data Portal" />Open Data Portal</a></li>
+                    <li class="opendata"><a href="http://data.technologiestiftung-berlin.de"><img src="http://localhost:8888/lab-site@tsb@github/docs/images/opendata-icon@2x.png" alt="Daten" />Daten</a></li>
                     <li><a href="http://lab.technologiestiftung-berlin.de/#projects">Projekte</a></li>
                     <li><a href="http://lab.technologiestiftung-berlin.de/#team">Team</a></li>
                     <li><a href="http://lab.technologiestiftung-berlin.de/#contact">Kontakt</a></li>
@@ -85,7 +85,7 @@
             <div id="teaser">
                 <div class="container">
                     <div id="teaser-text">
-                        <h1>Open Data Portal</h1>
+                        <h1><img src="../assets/images/logo@2x.png" alt="Daten">Daten</h1>
                         <p>In den Projekten des <a href="http://lab.technologiestiftung-berlin.de">Ideation &amp; Prototyping Labs</a> spielen offene Daten eine zentrale Rolle. In diesem Datenportal stellen wir speziell aufbereitete, veredelte und kombinierte Datensätze zur Verfügung. Originäre offene Daten des Landes Berlin finden Sie auf <a href="https://daten.berlin.de/">daten.berlin.de</a>, dem <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, dem <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> und der Seite des <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amts für Statistik Berlin-Brandenburg</a>.</p>
                     </div>
                     <hr class="clear" />
@@ -94,7 +94,93 @@
         </header>
         <main>
             <div class="container">
-
+                <div id="sidebar">
+                    <ul>
+                        <li>
+                            <a><img src="../assets/images/icon-view-map@2x.png" alt="Kartenansicht"><span>Kartenansicht</span></a><!-- Listenanischt -->
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-type@2x.png" alt="Filter Type">Datenart <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="type">
+                                <li data-value="geo">Räumlich</li>
+                                <li data-value="temporal">Zeitreihe</li>
+                            </ul>
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-years@2x.png" alt="Filter Jahre">Jahre <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="years">
+                                <li data-value="2005">2005</li>
+                                <li data-value="2006">2006</li>
+                                <li data-value="2006">2007</li>
+                                <li data-value="2006">2008</li>
+                                <li data-value="2006">2009</li>
+                                <li data-value="2006">2010</li>
+                                <li data-value="2006">2011</li>
+                                <li data-value="2006">2012</li>
+                                <li data-value="2006">2013</li>
+                                <li data-value="2006">2014</li>
+                                <li data-value="2006">2015</li>
+                                <li data-value="2006">2016</li>
+                                <li data-value="2006">2017</li>
+                            </ul>
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-granularity@2x.png" alt="Filter Auflösung">Auflösung <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="granularity">
+                                <li data-value="other">Andere</li>
+                                <li data-value="berlin">Berlin</li>
+                                <li data-value="plr">Planungsräume</li>
+                                <li data-value="br">Bezirksregionen</li>
+                                <li data-value="pr">Prognoseräume</li>
+                                <li data-value="district">Bezirke</li>
+                            </ul>
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-tag@2x.png" alt="Filter Stichwort">Stichworte <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="tags">
+                                <li data-value="arbeitslosigkeit">Arbeitslosigkeit</li>
+                                <li data-value="demographie">Demographie</li>
+                            </ul>
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-format@2x.png" alt="Filter Format">Format <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="format">
+                                <li data-value="geojson">GeoJSON</li>
+                                <li data-value="topojson">TopoJSON</li>
+                                <li data-value="shp">Shapefile</li>
+                                <li data-value="csv">CSV</li>
+                            </ul>
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-provider@2x.png" alt="Filter Bereitsteller*in">Bereitsteller*in <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="provider">
+                                <li data-value="afs">Amt für Statistik Berlin Brandenburg</li>
+                                <li data-value="senweb">Senatsverwaltung für Wirtschaft, Energie und Betriebe</li>
+                            </ul>
+                        </li>
+                        <li class="fold">
+                            <a><img src="../assets/images/icon-filter-license@2x.png" alt="Filter Lizenz">Lizenz <span>&#x25BC;</span></a>
+                            <ul class="filter-selection" data-key="license">
+                                <li data-value="other">Andere</li>
+                                <li data-value="cc0">CC0</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="search">
+                    <input type="text" placeholder="Suche" />
+                    <a>Suche zurücksetzen</a>
+                </div>
+                <div id="list">
+                    <ul>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div id="map">
+                </div>
+                <hr class="odclear clear" />
             </div>
         </main>
         <footer id="contact">
@@ -128,12 +214,33 @@
         </footer>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script type="text/javascript">
-            d3.select('#burger').on('click', function(){
-                d3.select(this).classed('active', !d3.select(this).classed('active'));
-                if(d3.select(this).classed('active')){
-                    d3.select('#nav ul').style('display', 'block');
+            d3.selectAll('.fold a').on('click', function(){
+                var t = d3.select(this),
+                    p = d3.select(this.parentNode);
+                if(p.classed('active')){
+                    p.classed('active',false);
+                    t.select('span').html('&#x25BC;');
                 }else{
-                    d3.select('#nav ul').style('display', 'none');
+                    p.classed('active',true);
+                    t.select('span').html('&#x25B2;');
+                }
+            });
+
+            d3.select('#search a').on('click', function(){
+                d3.select('#search input').property("value","").style('background-image','url(../assets/images/search@2x.png)');
+                d3.select(this).style('display','none');
+            });
+
+            d3.select('#search input').on('keyup', function(){
+                var t = d3.select(this),
+                    p = d3.select(this.parentNode),
+                    v = t.property("value");
+                if(v){
+                    t.style('background-image','none');
+                    p.select('a').style('display','block');
+                }else{
+                    t.style('background-image','url(../assets/images/search@2x.png)');
+                    p.select('a').style('display','none');
                 }
             });
         </script>
