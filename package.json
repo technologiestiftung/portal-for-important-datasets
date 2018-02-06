@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/technologiestiftung/data-repo/issues"
   },
-  "homepage": "https://github.com/technologiestiftung/data-repo#readme"
+  "homepage": "https://github.com/technologiestiftung/data-repo#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "turf": "^3.0.14"
+  }
 }
