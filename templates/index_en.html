@@ -21,7 +21,7 @@
 
         <!-- FACEBOOK -->
         <meta property="fb:app_id" content="487094758334595">
-        <meta property="og:url" content="http://data.technologiestiftung-berlin.de">
+        <meta property="og:url" content="https://data.technologiestiftung-berlin.de">
         <meta property="og:type" content="website">
         <meta property="og:title" content="Data | Ideation &amp; Prototyping Lab">
         <meta property="og:image" content="https://data.technologiestiftung-berlin.de/assets/icons/social_media_data.jpg">
@@ -33,7 +33,7 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@TSBBerlin">
         <meta name="twitter:creator" content="@seb_meier">
-        <meta name="twitter:url" content="http://data.technologiestiftung-berlin.de">
+        <meta name="twitter:url" content="https://data.technologiestiftung-berlin.de">
         <meta name="twitter:title" content="Data | Ideation &amp; Prototyping Lab">
         <meta name="twitter:description" content="Open Data sets provided by the Ideation &amp; Protoyping Lab | Technologiestiftung Berlin">
         <meta name="twitter:image" content="https://data.technologiestiftung-berlin.de/assets/icons/social_media_data.jpg">
@@ -44,7 +44,7 @@
         <meta itemprop="image" content="https://data.technologiestiftung-berlin.de/assets/icons/social_media_data.jpg">
 
         <!-- CANONICAL URL -->
-        <link rel="canonical" href="http://data.technologiestiftung-berlin.de">
+        <link rel="canonical" href="https://data.technologiestiftung-berlin.de">
         <!--<link rel="shortlink" href="tsblab.de/projects/PROJECT">-->
 
         <meta name="theme-color" content="#1e3791">
@@ -72,11 +72,11 @@
             </div></div>
             <div id="nav" class="container">
                 <ul>
-                    <li class="opendata"><a href="http://data.technologiestiftung-berlin.de"><img src="https://data.technologiestiftung-berlin.de/assets/images/opendata-icon@2x.png" alt="Daten" />Daten</a></li>
+                    <li class="opendata"><a href="https://data.technologiestiftung-berlin.de/en"><img src="https://data.technologiestiftung-berlin.de/assets/images/opendata-icon@2x.png" alt="Data" />Data</a></li>
                     <li><a href="http://lab.technologiestiftung-berlin.de/#projects">Projects</a></li>
                     <li><a href="http://lab.technologiestiftung-berlin.de/#team">Team</a></li>
                     <li><a href="http://lab.technologiestiftung-berlin.de/#contact">Contact</a></li>
-                    <li class="lang"><a href="http://data.technologiestiftung-berlin.de">Deutsch</a></li>
+                    <li class="lang"><a href="https://data.technologiestiftung-berlin.de">Deutsch</a></li>
                 </ul>
                 <div id="burger"></div>
             </div>
@@ -85,7 +85,7 @@
             <div id="teaser">
                 <div class="container">
                     <div id="teaser-text">
-                        <h1><img src="http://data.technologiestiftung-berlin.de/assets/images/logo@2x.png" alt="Daten">Data</h1>
+                        <h1><img src="https://data.technologiestiftung-berlin.de/assets/images/logo@2x.png" alt="Daten">Data</h1>
                         <p>The projects of the <a href="http://lab.technologiestiftung-berlin.de">Ideation &amp; Prototyping Labs</a> often make use of open data. On this data portal we are providing transformed, enriched and combined datasets. Berlin's original open data is provided through the open data sites <a href="https://daten.berlin.de/">daten.berlin.de</a>, <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> as well as <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amt für Statistik Berlin-Brandenburg</a>.</p>
                     </div>
                     <hr class="clear" />
@@ -143,10 +143,10 @@
                         </li>
                     </ul>
                 </div>
-                <!--<div id="search">
+                <div id="search">
                     <input type="text" placeholder="Suche" />
                     <a>Reset search</a>
-                </div>-->
+                </div>
                 <div id="list">
                     <ul>
                         {{DATALIST}}
@@ -204,8 +204,10 @@
             });
 
             d3.select('#search a').on('click', function(){
-                d3.select('#search input').property("value","").style('background-image','url(http://data.technologiestiftung-berlin.de/assets/images/search@2x.png)');
+                d3.select('#search input').property("value","").style('background-image','url(https://data.technologiestiftung-berlin.de/assets/images/search@2x.png)');
                 d3.select(this).style('display','none');
+                term = false;
+                updateFilter();
             });
 
             d3.select('#search input').on('keyup', function(){
@@ -215,11 +217,55 @@
                 if(v){
                     t.style('background-image','none');
                     p.select('a').style('display','block');
+                    term = v.toLowerCase();
                 }else{
-                    t.style('background-image','url(http://data.technologiestiftung-berlin.de/assets/images/search@2x.png)');
+                    t.style('background-image','url(https://data.technologiestiftung-berlin.de/assets/images/search@2x.png)');
                     p.select('a').style('display','none');
+                    term = false;
                 }
+                updateFilter();
             });
+
+            var filters = [], term = false;
+
+            var selectors = d3.selectAll('.filter-selection');
+            selectors.each(function(){
+                var key = d3.select(this).node().getAttribute('data-key');
+                d3.select(this).selectAll('li').on('click', function(){
+                    var value = d3.select(this).node().getAttribute('data-value');
+                    if(d3.select(this).classed('active')){
+                        d3.select(this).classed('active',false);
+                        filters.splice(filters.indexOf(key+'-'+value), 1);
+                    }else{
+                        d3.select(this).classed('active',true);
+                        filters.push(key+'-'+value);
+                    }
+                    updateFilter();
+                });
+            });
+
+            function updateFilter(){
+                if(filters.length == 0 && term == false){
+                    d3.selectAll('#list li').style('display','block');
+                }else{
+                    if(filters.length > 0){
+                        d3.selectAll('#list li').style('display','none');
+                        d3.selectAll('#list li.'+filters.join('.')).style('display','block');
+                    }else{
+                        d3.selectAll('#list li').style('display','block');
+                    }
+
+                    if(term.length>=3){
+                        titles.forEach(function(t){
+                            if(t.t.toLowerCase().indexOf(term) == -1){
+                                d3.select('#data-item-'+t.id).style('display','none');
+                            }
+                        });
+                    }
+                }
+            }
+
+            updateFilter();
         </script>
     </body>
 </html>

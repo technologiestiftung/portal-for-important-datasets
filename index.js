@@ -281,7 +281,7 @@ app.get('/'+config.secret+'/update', function(req, res) {
 			fs.writeFileSync(__dirname + '/http/data/'+d.file+((l=='en')?'_en':'')+'.html', t_data_html[l], 'utf8')
 
 			datalist[l] += '<li class="' + classes + '" id="data-item-'+di+'">'+"\n"+
-				'<a href="http://data.technologiestiftung-berlin.de/dataset/'+d.file+((l=='en')?'/en':'')+'">'+"\n";
+				'<a href="https://data.technologiestiftung-berlin.de/dataset/'+d.file+((l=='en')?'/en':'')+'">'+"\n";
 
 			if(datasets[di].meta['hasThumb']){
 				datalist[l] += '<img src="https://data.technologiestiftung-berlin.de/data/'+d.file+'/thumb.jpg" alt="'+d.meta[l].title+'" />'+"\n";
@@ -418,6 +418,16 @@ app.get('/dataset/:dataset/:lang', function(req, res) {
 
 	if (fs.existsSync(dataFolder+dataset)) {
 		res.sendFile(__dirname + '/http/data/'+dataset+lang+'.html')  
+	}else{
+		res.sendFile(__dirname + '/http/404.html')
+	}  	
+})
+
+app.get('/dataset/:dataset', function(req, res) {
+	let dataset = req.params.dataset
+
+	if (fs.existsSync(dataFolder+dataset)) {
+		res.sendFile(__dirname + '/http/data/'+dataset+'.html')  
 	}else{
 		res.sendFile(__dirname + '/http/404.html')
 	}  	
