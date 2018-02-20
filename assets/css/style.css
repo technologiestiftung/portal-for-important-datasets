@@ -7,17 +7,6 @@ p.copy{
 	font-family: 'Roboto Mono', monospace;
 }
 
-#nav ul li.opendata{
-	padding-right:0;
-	border-right:none;
-	margin-right:13px;
-}
-
-#nav li.opendata img{
-	float:right;
-	margin: -4px 0 0 8px;
-}
-
 #teaser-text{
 	width:100%;
 	max-width:700px;
@@ -25,11 +14,12 @@ p.copy{
 }
 
 #teaser-text p{
-	padding:20 20px 0 20px;
+	padding:20px 0 20px 0;
 	width:100%;
 	max-width: 100%;
 	font-size:18px;
 	line-height:28px;
+	overflow:hidden;
 }
 
 #teaser-text h1{
