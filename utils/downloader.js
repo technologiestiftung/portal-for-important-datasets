@@ -11,6 +11,7 @@ let minx = 369095.687897,
 //ogr2ogr -f "ESRI Shapefile" flurstuecke flurstuecke.sqlite -dialect sqlite -sql "SELECT * FROM unionlayer GROUP BY gml_id"
 
 let datasets = [
+    ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_hinterl4326', 're_hinterl4326', 'hinterlandmauer', false]
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_vkz', 're_vkz', 'verkehrszellen', false],
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_vkz_teil', 're_vkz_teil', 'teil_verkehrszellen', false],
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_bezirksregion', 're_bezirksregion','lor_bezirksregionen', false],
@@ -19,20 +20,20 @@ let datasets = [
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_ortsteil', 're_ortsteil', 'ortsteile', false]
     //['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_postleit', 're_postleit', 'plz', false]
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_bezirk','s_wfs_alkis_bezirk','bezirksgrenzen', false],
-    ['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gebaeudeflaechen','s_wfs_alkis_gebaeudeflaechen','gebaeude', true],
-    ['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis','s_wfs_alkis','flurstuecke', true]
+    //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gebaeudeflaechen','s_wfs_alkis_gebaeudeflaechen','gebaeude', true],
+    //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis','s_wfs_alkis','flurstuecke', true]
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_flur','s_wfs_alkis_flur','flure', false],
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_ISU5_2015_UA','s_ISU5_2015_UA','blockflaechen', false],
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_ISU5_2015_UA_str','s_ISU5_2015_UA_str','strassenflaechen', false]
   ],
   formats = [
-//    ['GeoJSON', 'geojson'],
-    ['ESRI Shapefile', 'shp']
-    // ['KML', 'kml'],
-    // ['GML', 'gml'],
-    // ['CSV', 'csv'],
-    // ['PGDump', 'dump'],
-    // ['SQLite','sqlite']
+    ['GeoJSON', 'geojson'],
+    ['ESRI Shapefile', 'shp'],
+    ['KML', 'kml'],
+    ['GML', 'gml'],
+    ['CSV', 'csv'],
+    ['PGDump', 'dump'],
+    ['SQLite','sqlite']
   ],
   ei = 0,
   di = 0,
@@ -104,5 +105,5 @@ function next(){
   }
 }
 
-//getData()
-buildVRTs()
+getData()
+//buildVRTs()
