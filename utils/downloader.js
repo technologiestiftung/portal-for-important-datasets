@@ -11,7 +11,7 @@ let minx = 369095.687897,
 //ogr2ogr -f "ESRI Shapefile" flurstuecke flurstuecke.sqlite -dialect sqlite -sql "SELECT * FROM unionlayer GROUP BY gml_id"
 
 let datasets = [
-    ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_hinterl4326', 're_hinterl4326', 'hinterlandmauer', false]
+    //['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_hinterl4326', 're_hinterl4326', 'hinterlandmauer', false]
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_vkz', 're_vkz', 'verkehrszellen', false],
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_vkz_teil', 're_vkz_teil', 'teil_verkehrszellen', false],
     // ['http://fbinter.stadt-berlin.de/fb/wfs/geometry/senstadt/re_bezirksregion', 're_bezirksregion','lor_bezirksregionen', false],
@@ -25,6 +25,24 @@ let datasets = [
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_flur','s_wfs_alkis_flur','flure', false],
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_ISU5_2015_UA','s_ISU5_2015_UA','blockflaechen', false],
     //['http://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_ISU5_2015_UA_str','s_ISU5_2015_UA_str','strassenflaechen', false]
+    //['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis', 's_wfs_alkis', 's_wfs_alkis', false],
+    //['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gebaeudeflaechen', 's_wfs_alkis_gebaeudeflaechen', 's_wfs_alkis_gebaeudeflaechen', false],
+    //['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gebaeudelinien', 's_wfs_alkis_gebaeudelinien', 's_wfs_alkis_gebaeudelinien', false],
+    //['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_bauwerkeflaechen', 's_wfs_alkis_bauwerkeflaechen', 's_wfs_alkis_bauwerkeflaechen', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_bauwerkelinien', 's_wfs_alkis_bauwerkelinien', 's_wfs_alkis_bauwerkelinien', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_besondereflurstuecksgrenzen', 's_wfs_alkis_besondereflurstuecksgrenzen', 's_wfs_alkis_besondereflurstuecksgrenzen', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_festlegungenflaechen', 's_wfs_alkis_festlegungenflaechen', 's_wfs_alkis_festlegungenflaechen', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gewaesserundvegetationsflaechen', 's_wfs_alkis_gewaesserundvegetationsflaechen', 's_wfs_alkis_gewaesserundvegetationsflaechen', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_reliefflaechen', 's_wfs_alkis_reliefflaechen', 's_wfs_alkis_reliefflaechen', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_relief', 's_wfs_alkis_relief', 's_wfs_alkis_relief', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_tatsaechlichenutzungflaechen', 's_wfs_alkis_tatsaechlichenutzungflaechen', 's_wfs_alkis_tatsaechlichenutzungflaechen', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gewaesservegetationlinien', 's_wfs_alkis_gewaesservegetationlinien', 's_wfs_alkis_gewaesservegetationlinien', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_vegetationpunkte', 's_wfs_alkis_vegetationpunkte', 's_wfs_alkis_vegetationpunkte', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_ortsteile', 's_wfs_alkis_ortsteile', 's_wfs_alkis_ortsteile', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_land', 's_wfs_alkis_land', 's_wfs_alkis_land', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_flur', 's_wfs_alkis_flur', 's_wfs_alkis_flur', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_gemarkung', 's_wfs_alkis_gemarkung', 's_wfs_alkis_gemarkung', false],
+    ['https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_wfs_alkis_bezirk', 's_wfs_alkis_bezirk', 's_wfs_alkis_bezirk', false]
   ],
   formats = [
     ['GeoJSON', 'geojson'],
