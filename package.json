@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/technologiestiftung/data-repo#readme",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.16.4",
     "fs": "0.0.1-security",
     "turf": "^3.0.14"
   }
