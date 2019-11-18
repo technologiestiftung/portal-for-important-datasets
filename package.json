@@ -19,6 +19,8 @@
   "dependencies": {
     "express": "^4.16.2",
     "fs": "0.0.1-security",
+    "s3-list-all-objects": "^0.1.0",
+    "sync-request": "^6.1.0",
     "turf": "^3.0.14"
   }
 }
