@@ -1,0 +1,5 @@
+- update social media icons in default.liquid
+- individual meta titles and descriptions for datasets
+- update to ODIS Design
+  - Icons < Helps
+- Kommentare schreiben in den Code

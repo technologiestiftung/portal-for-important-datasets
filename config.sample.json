@@ -1,3 +1,7 @@
 {
-	"secret":"SECRET"
+	"aws":{
+    "bin": "https://YOURBINSNAME.s3.eu-central-1.amazonaws.com/",
+		"id": "AWSID",
+		"key": "AWSKEY"
+	}
 }

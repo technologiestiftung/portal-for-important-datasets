@@ -9,38 +9,9 @@ let app = express()
 
 let dataFolder = 'https://tsb-opendata.s3.eu-central-1.amazonaws.com/'
 
-app.use('/assets', express.static(__dirname + '/assets/'))
-
-app.all('/*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS")
-  res.header("Access-Control-Allow-Headers", "Content-Type, X-Requested-With")
-  next();
-});
-
-app.get('/robot.txt', function(req, res) {
-	res.sendFile(__dirname + '/assets/robot.txt')
-})
-
 app.get('/'+config.secret+'/update', function(req, res) {
   	
   let datasets = []
-
-  listAllObjects({ bucket: 'tsb-opendata', s3options: {
-    accessKeyId : config.aws.id,
-    secretAccessKey : config.aws.key
-  }}, (err, data) => {
-    if (err) { throw err; }
-    data.forEach((d) => {
-      if(d.Key.indexOf("meta.json") > -1){
-        let meta = JSON.parse(request('GET', dataFolder+d.Key).getBody());
-
-        datasets.push({
-          file:d.Key.split("/")[0],
-          meta:meta
-        });
-      }
-    });
 
     let index_html = {de:fs.readFileSync(__dirname + '/templates/index.html', 'utf8'), en: fs.readFileSync(__dirname + '/templates/index_en.html', 'utf8')},
       data_html = {de:fs.readFileSync(__dirname + '/templates/data.html', 'utf8'), en: fs.readFileSync(__dirname + '/templates/data_en.html', 'utf8')},
@@ -451,6 +422,3 @@ app.get('/en', function(req, res) {
 app.get('/', function(req, res) {
   	res.sendFile(__dirname + '/http/index.html')
 })
-
-console.log('Listening on port: ' + 1919)
-app.listen(1919)

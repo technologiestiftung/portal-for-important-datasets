@@ -1,0 +1,79 @@
+---
+title: startpage
+layout: layouts/default.liquid
+---
+<header>
+  <div id="teaser">
+      <div class="container">
+          <div id="teaser-text">
+              <h1><img src="https://data.technologiestiftung-berlin.de/assets/images/logo@2x.png" alt="Daten">Daten</h1>
+              <p>In den Projekten des <a href="http://lab.technologiestiftung-berlin.de">Ideation &amp; Prototyping Labs</a> spielen offene Daten eine zentrale Rolle. In diesem Datenportal stellen wir speziell aufbereitete, veredelte und kombinierte Datensätze zur Verfügung. Originäre offene Daten des Landes Berlin finden Sie auf <a href="https://daten.berlin.de/">daten.berlin.de</a>, dem <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, dem <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> und der Seite des <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amts für Statistik Berlin-Brandenburg</a>.</p>
+          </div>
+          <hr class="clear" />
+      </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+      <div id="sidebar">
+          <ul>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-type@2x.png" alt="Filter Datenart">Datenart <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="t">
+                      {{FILTERTYPE}}
+                  </ul>
+              </li>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-years@2x.png" alt="Filter Jahre">Jahre <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="y">
+                      {{FILTERYEARS}}
+                  </ul>
+              </li>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-granularity@2x.png" alt="Filter Auflösung">Auflösung <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="g">
+                      {{FILTERGEOLEVEL}}
+                  </ul>
+              </li>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-tag@2x.png" alt="Filter Stichwort">Stichworte <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="k">
+                      {{FILTERKEYWORDS}}
+                  </ul>
+              </li>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-format@2x.png" alt="Filter Format">Format <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="f">
+                      {{FILTERFORMATS}}
+                  </ul>
+              </li>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-provider@2x.png" alt="Filter Bereitsteller*in">Bereitsteller*in <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="p">
+                      {{FILTERPROVIDER}}
+                  </ul>
+              </li>
+              <li class="fold">
+                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-license@2x.png" alt="Filter Lizenz">Lizenz <span>&#x25BC;</span></a>
+                  <ul class="filter-selection" data-key="l">
+                      {{FILTERLICENSE}}
+                  </ul>
+              </li>
+          </ul>
+      </div>
+      <div id="search">
+          <input type="text" placeholder="Suche" />
+          <a>Suche zurücksetzen</a>
+      </div>
+      <div id="list">
+          <ul>
+              {{DATALIST}}
+          </ul>
+      </div>
+      <div id="map-container">
+
+          <div id="map"></div>
+      </div>
+      <hr class="odclear clear" />
+  </div>
+</main>

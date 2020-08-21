@@ -1,0 +1,32 @@
+---
+title: dataset
+layout: layouts/default.liquid
+---
+<header>
+  <div id="teaser" class="detail">
+      <div class="container small">
+          <div id="teaser-text">
+              <h1><img src="https://data.technologiestiftung-berlin.de/assets/images/file@2x.png" alt="Daten"><br />{{TITLE}}</h1>
+              {{PREVIEW}}
+              <p class="p-top">{{DESCRIPTIONLONG}}</p>
+          </div>
+      </div>
+      <hr class="clear-sm" />
+  </div>
+</header>
+<main>
+  <div class="container small p-bottom">
+      <h2 class="p-bottom">Downloads</h2>
+      <ul class="download-list">{{DOWNLOADLIST}}</ul>
+      <hr class="clear" />
+  </div>
+  <div class="container small">
+      {{MAP}}
+  </div>
+  <div class="container small">
+      <h2 class="p-top">Metadaten</h2>
+      <p class="p-bottom copy">Metadaten im DCAT-AP.de Format zum Download: <a href="{{DCAT}}">DCAT-AP.de.JSON</a></p>
+      <ul class="meta-list">{{METALIST}}</ul>
+  </div>
+  <hr class="odclear-half clear" />
+</main>
