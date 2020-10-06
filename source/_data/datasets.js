@@ -21,6 +21,7 @@ const getDatasets = () => {
         return false;
       }).map((obj) => {
         const url = config.aws.bucketUrl + obj.Key;
+        console.log(url);
         return fetch(url)
           .then((response) => {
             if (response.ok) {

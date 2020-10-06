@@ -1,6 +1,6 @@
 {
 	"aws":{
-    "bin": "https://YOURBINSNAME.s3.eu-central-1.amazonaws.com/",
+    	"bucket": "https://YOUR_BUCKET_NAME.s3.eu-central-1.amazonaws.com/",
 		"id": "AWSID",
 		"key": "AWSKEY"
 	}
