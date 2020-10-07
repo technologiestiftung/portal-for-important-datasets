@@ -23,6 +23,8 @@ const getDatasets = () => {
               meta: false,
               hasPreview: false,
               hasThumb: false,
+              hasGeojson: false,
+              geojson: '',
               formats: []
             };
 
@@ -42,11 +44,17 @@ const getDatasets = () => {
                   break;
                 // the rest should be datafiles
                 default:
-                  dataset.formats.push({
-                    file: dataItem.Key,
-                    size: dataItem.Size,
-                    format: dataItem.Key.split("/")[1].split(".")[1]
-                  });
+                  // the folder itself also shows up here (Size === 0)
+                  if (dataItem.Size > 0) {
+                    dataset.formats.push({
+                      file: dataItem.Key,
+                      size: dataItem.Size,
+                      format: dataItem.Key.split("/")[1].split(".")[1]
+                    });
+                    if (dataItem.Key.indexOf(".geojson") >= 0 && dataItem.Key.indexOf("zip") == -1) {
+                      dataset.hasGeojson = dataItem.Key;
+                    }
+                  }
                   break;
               }
             });
@@ -73,6 +81,32 @@ const getDatasets = () => {
             }
           })
       }));
+    })
+    // download geojsons to overcome CORS
+    // comment this out for quicker building
+    .then((objects) => {
+      return Promise.all(objects.map((object, id) => {
+        if (object.hasGeojson) {
+          const url = config.aws.bucketUrl + object.hasGeojson;
+          return fetch(url)
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw Error(`Error fetching ${url}`)
+              }
+            })
+            .then((json) => {
+              objects[id].geojson = JSON.stringify(json);
+              return Promise.resolve();
+            }); 
+        } else {
+          return Promise.resolve();
+        }
+      }))
+      .then(() => {
+        return objects;
+      });
     })
     .then((objects) => {
       const pageList = [];

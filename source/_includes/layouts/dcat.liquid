@@ -77,7 +77,14 @@ title: dcat
                     ]
                 }
             ],
-            "dct:temporal": [],
+            "dct:temporal": [
+            {% if dataset.meta.meta.temporal.size > 0 %}
+                {
+                    "schema:startDate": "{{ dataset.meta.meta.temporal[0] }}",
+                    "schema:endDate": "{{ dataset.meta.meta.temporal[1] }}"
+                }
+            {% endif %}
+            ],
             "dct:modified": "{{ dataset.meta.meta.timestamp }}",
             "dcat:distribution": [
                 {% for format in dataset.formats %}

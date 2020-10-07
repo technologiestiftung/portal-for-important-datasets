@@ -6,9 +6,9 @@ layout: layouts/default.liquid
   <div id="teaser" class="detail">
       <div class="container small">
           <div id="teaser-text">
-              <h1><img src="https://data.technologiestiftung-berlin.de/assets/images/file@2x.png" alt="Daten"><br />{{TITLE}}</h1>
-              {{PREVIEW}}
-              <p class="p-top">{{DESCRIPTIONLONG}}</p>
+              <h1><img src="https://data.technologiestiftung-berlin.de/assets/images/file@2x.png" alt="Daten"><br />{{ dataset.meta.meta[dataset.lang].title }}</h1>
+              {% if dataset.hasPreview %}<img src="{{ site.s3BaseUrl }}{{ dataset.folder }}preview.jpg" alt="{% if dataset.lang == "de" %}Vorschau{% else %}Preview{% endif %}" />{% endif %}
+              <p class="p-top">{{ dataset.meta.meta[dataset.lang].description }}</p>
           </div>
       </div>
       <hr class="clear-sm" />
@@ -17,16 +17,36 @@ layout: layouts/default.liquid
 <main>
   <div class="container small p-bottom">
       <h2 class="p-bottom">Downloads</h2>
-      <ul class="download-list">{{DOWNLOADLIST}}</ul>
+      <ul class="download-list">
+        {% for format in dataset.formats %}
+        <li>
+            <a href="{{ site.s3BaseUrl }}{{ format.file }}"><span class="download-icon"></span><span class="download-title">{% if site.formatter[format.format] %}{{ site.formatter[format.format] }}{% else %}{{ format.format }}{% endif %}</span></a><br />
+            <span class="download-subtitle">{{ format.size | divided_by: 1000000 | round: 2 }}&nbsp;MB</span>
+        </li>{% endfor %}
+      </ul>
       <hr class="clear" />
   </div>
   <div class="container small">
-      {{MAP}}
+    {% if dataset.hasGeojson %}<div id="map" data-geojson="{{ site.baseUrl }}/{{ dataset.lang }}/dataset/{{ dataset.folder }}data.geojson"></div>{% endif %}
   </div>
   <div class="container small">
       <h2 class="p-top">Metadaten</h2>
-      <p class="p-bottom copy">Metadaten im DCAT-AP.de Format zum Download: <a href="{{DCAT}}">DCAT-AP.de.JSON</a></p>
-      <ul class="meta-list">{{METALIST}}</ul>
+      <p class="p-bottom copy">Metadaten im DCAT-AP.de Format zum Download: <a href="./dcat.json">DCAT-AP.de.JSON</a></p>
+      <ul class="meta-list">
+        <li><span class="key">{% if dataset.lang == "en" %}Last modified{% else %}Zuletzt aktualisiert{% endif %}</span>: <span class="value">{{ dataset.meta.meta.timestamp }}</span></li>
+        <li><span class="key">{% if dataset.lang == "en" %}Provider{% else %}Urheber{% endif %}</span>: <span class="value">{{ dataset.meta.meta.provider }}</span></li>
+        {% if dataset.meta.meta.temporal.size > 0 %}
+          <li><span class="key">{% if dataset.lang == "en" %}Period{% else %}Zeitspanne{% endif %}</span>: <span class="value">{{ dataset.meta.meta.temporal[0] }}-{{ dataset.meta.meta.temporal[1] }}</span></li>
+        {% endif %}
+        {% if dataset.meta.meta.keywords.length > 0 %}
+          <li><span class="key">{% if dataset.lang == "en" %}Keywords{% else %}Stichworte{% endif %}</span>: <span class="value">{{ dataset.meta.meta[l].keywords | join: "," }}</span></li>
+        {% endif %}
+        {% if dataset.meta.meta.geolevel.length > 0 %}
+          <li><span class="key">{% if dataset.lang == "en" %}Spatial Resolution{% else %}Räumliche Auflösung{% endif %}</span>: <span class="value">{% if site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] %}{{ site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] }}{% else %}{{ dataset.meta.meta.geolevel }}{% endif %}</span></li>
+        {% endif %}
+        <li><span class="key">{% if dataset.lang == "en" %}License{% else %}Lizenz{% endif %}</span>: <span class="value">{{ dataset.meta.meta.license }}</span></li>
+
+      </ul>
   </div>
   <hr class="odclear-half clear" />
 </main>
