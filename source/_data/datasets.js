@@ -11,43 +11,80 @@ const s3 = new AWS.S3({
 });
 
 const getDatasets = () => {
-  // This function works if we have less than 1000 files in the bucket, otherwise we would need to paginate
-  return s3.listObjectsV2({ Bucket: config.aws.bucket }).promise()
+  // get all the folders in root
+  return s3.listObjectsV2({ Bucket: config.aws.bucket, Delimiter: "/" }).promise()
     .then((objects) => {
-      return Promise.all(objects.Contents.filter((obj) => {
-        if (obj.Key.indexOf("meta.json") > -1) {
-          return true;
-        }
-        return false;
-      }).map((obj) => {
-        const url = config.aws.bucketUrl + obj.Key;
-        console.log(url);
-        return fetch(url)
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
+      return Promise.all(objects.CommonPrefixes.map((obj) => {
+        // get all objects in the folder
+        return s3.listObjectsV2({ Bucket: config.aws.bucket, Delimiter: "/", Prefix: obj.Prefix }).promise()
+          .then((dataItems) => {
+            const dataset = {
+              folder: obj.Prefix,
+              meta: false,
+              hasPreview: false,
+              hasThumb: false,
+              formats: []
+            };
+
+            dataItems.Contents.forEach((dataItem) => {
+              console.log(dataItem);
+              switch(dataItem.Key.split("/")[1]) {
+                // yay meta file
+                case "meta.json":
+                  dataset.meta = true;
+                  break;
+                // wohooo preview image
+                case "preview.jpg":
+                  dataset.hasPreview = true;
+                  break;
+                // horray thumbnail for the list
+                case "thumb.jpg":
+                  dataset.hasThumb = true;
+                  break;
+                // the rest should be datafiles
+                default:
+                  dataset.formats.push({
+                    file: dataItem.Key,
+                    size: dataItem.Size,
+                    format: dataItem.Key.split("/")[1].split(".")[1]
+                  });
+                  break;
+              }
+            });
+
+            // if there is a meta file get it an merge into data set, otherwise return null
+            if (dataset.meta) {
+              const url = config.aws.bucketUrl + obj.Prefix + "meta.json";
+              return fetch(url)
+                .then((response) => {
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    throw Error(`Error fetching ${url}`)
+                  }
+                })
+                .then((json) => {
+                  dataset.meta = {
+                    meta: json
+                  };
+                  return dataset;
+                });
             } else {
-              throw Error(`Error fetching ${url}`)
+              return Promise.resolve(null);
             }
           })
-          .then((json) => {
-            return {
-              path: url,
-              folder: obj.Key.split("/")[0],
-              meta: json
-            };
-          });
       }));
     })
     .then((objects) => {
       const pageList = [];
-      objects.forEach((obj) => {
+      objects.filter((obj) => obj !== null)
+      .forEach((obj) => {
         (["de", "en"]).forEach((lang) => {
           const page = JSON.parse(JSON.stringify(obj));
           page.lang = lang;
-          page.title = page.meta[lang].title;
-          page.description = page.meta[lang].description;
-          page.keywords = page.meta[lang].keywords;
+          page.title = page.meta.meta[lang].title;
+          page.description = page.meta.meta[lang].description;
+          page.keywords = page.meta.meta[lang].keywords;
           pageList.push(page);
         });
       });
