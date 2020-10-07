@@ -1,14 +1,28 @@
 ---
 title: default
 ---
-{% if dataset.lang %}{% assign locale = dataset.lang %}{% elsif startpage.locale %}{% assign locale = startpage.locale %}{% else %}{% assign locale = "de" %}{% endif %}
+{% if dataset.lang %}
+    {% assign locale = dataset.lang %}
+{% elsif startpage.locale %}
+    {% assign locale = startpage.locale %}
+{% else %}
+    {% assign locale = "de" %}
+{% endif %}
+
+{% if dataset.meta.meta[locale].title %}
+    {% assign description = site[locale].metaDescription %}
+    {% assign title = dataset.meta.meta[locale].title %}
+{% else %}
+    {% assign description = site[locale].metaDescription %}
+    {% assign title = site[locale].metaTitle %}
+{% endif %}
 <!doctype html>
 <html lang="{{ locale }}" itemscope itemtype="http://schema.org/Article">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ site[locale].metaTitle }} | ODIS</title>
-        <meta name="description" content="{{ site[locale].metaDescription }} | ODIS">
+        <title>{{ title }} | ODIS</title>
+        <meta name="description" content="{{ description }} | ODIS">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="apple-touch-icon" href="{{ site.baseUrl }}/assets/icons/icon.png">
@@ -25,9 +39,9 @@ title: default
         <meta property="fb:app_id" content="487094758334595">
         <meta property="og:url" content="{{ site.baseUrl + page.url }}">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="{{ site[locale].metaTitle }} | ODIS">
+        <meta property="og:title" content="{{ title }} | ODIS">
         <meta property="og:image" content="{{ site.baseUrl }}/assets/icons/social_media.jpg">
-        <meta property="og:description" content="{{ site[locale].metaDescription }}">
+        <meta property="og:description" content="{{ description }}">
         <meta property="og:site_name" content="{{ site[locale].metaTitle }} | ODIS">
         <meta property="article:author" content="Sebastian Meier">
 
@@ -36,13 +50,13 @@ title: default
         <meta name="twitter:site" content="@TSBBerlin">
         <meta name="twitter:creator" content="@seb_meier">
         <meta name="twitter:url" content="{{ site.baseUrl + page.url }}">
-        <meta name="twitter:title" content="{{ site[locale].metaTitle }} | ODIS">
-        <meta name="twitter:description" content="{{ site[locale].metaDescription }}">
+        <meta name="twitter:title" content="{{ title }} | ODIS">
+        <meta name="twitter:description" content="{{ description }}">
         <meta name="twitter:image" content="{{ site.baseUrl }}/assets/icons/social_media.jpg">
 
         <!-- GOOGLE+/SCHEMA.ORG -->
-        <meta itemprop="name" content="{{ site[locale].metaTitle }} | ODIS">
-        <meta itemprop="description" content="{{ site[locale].metaDescription }}">
+        <meta itemprop="name" content="{{ title }} | ODIS">
+        <meta itemprop="description" content="{{ description }}">
         <meta itemprop="image" content="{{ site.baseUrl }}/assets/icons/social_media.jpg">
 
         <!-- CANONICAL URL -->
