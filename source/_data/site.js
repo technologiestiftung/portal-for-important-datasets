@@ -2,8 +2,6 @@ module.exports = {
   buildTime: new Date(),
   baseUrl: "http://localhost:8080",
   s3BaseUrl: "https://tsb-opendata.s3.eu-central-1.amazonaws.com/",
-  name: "mySite",
-  twitter: "@handle",
   en: {
     metaTitle: "Data",
     metaDescription: "Description in english",
