@@ -1,6 +1,7 @@
 module.exports = {
   buildTime: new Date(),
   baseUrl: "https://data.odis-berlin.de",
+  s3BaseUrl: "https://tsb-opendata.s3.eu-central-1.amazonaws.com/",
   name: "mySite",
   twitter: "@handle",
   en: {

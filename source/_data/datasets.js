@@ -27,7 +27,6 @@ const getDatasets = () => {
             };
 
             dataItems.Contents.forEach((dataItem) => {
-              console.log(dataItem);
               switch(dataItem.Key.split("/")[1]) {
                 // yay meta file
                 case "meta.json":
