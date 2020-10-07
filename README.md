@@ -25,11 +25,12 @@ eleventyConfig.addPassthroughCopy("source/assets", "assets");
 ### source/_data/site.js
 
 Basic configs for the site, like baseUrl, etc.
+baseUrl is the most important, for local development set this to your localhost setup, for deployment, this needs to be set to the final url (https://data.odis-berlin.de). TODO: Check if there is a way to switch between the two automatically without need of changing them manually.
 It also contains an array of formatters, which translate abbreviations from the meta.json's into more readable form.
 
 ### source/_data/dataset.js
 
-This is where the magic happens. The script reads out the S3 folder and creates a data object for each folder, which is turned into a dataset page.
+This is where the magic happens. The script reads out the S3 folder and creates a data object for each folder, which is turned into a dataset page. Each folder holds a meta.json, which holds the data to create the pages.
 
 ### source/_includes/layouts
 
@@ -46,3 +47,4 @@ This is where the magic happens. The script reads out the S3 folder and creates 
 - dataset-meta.liquid: metadata json files for each dataset
 - dataset-page.liquid: individual pages for each dataset
 - index.liquid: list pages (index.html, /en/index.html, /de/index.html)
+
