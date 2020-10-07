@@ -4,6 +4,7 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addCollection("allcontent", function (collectionApi) {
   //   return collectionApi.getAll();
   // });
+  eleventyConfig.addPassthroughCopy("source/assets", "assets");
   return {
     dir: {
       data: "_data",

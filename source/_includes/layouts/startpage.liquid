@@ -15,64 +15,39 @@ layout: layouts/default.liquid
 </header>
 <main>
   <div class="container">
-      <div id="sidebar">
-          <ul>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-type@2x.png" alt="Filter Datenart">Datenart <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="t">
-                      {{FILTERTYPE}}
-                  </ul>
-              </li>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-years@2x.png" alt="Filter Jahre">Jahre <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="y">
-                      {{FILTERYEARS}}
-                  </ul>
-              </li>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-granularity@2x.png" alt="Filter Auflösung">Auflösung <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="g">
-                      {{FILTERGEOLEVEL}}
-                  </ul>
-              </li>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-tag@2x.png" alt="Filter Stichwort">Stichworte <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="k">
-                      {{FILTERKEYWORDS}}
-                  </ul>
-              </li>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-format@2x.png" alt="Filter Format">Format <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="f">
-                      {{FILTERFORMATS}}
-                  </ul>
-              </li>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-provider@2x.png" alt="Filter Bereitsteller*in">Bereitsteller*in <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="p">
-                      {{FILTERPROVIDER}}
-                  </ul>
-              </li>
-              <li class="fold">
-                  <a><img src="https://data.technologiestiftung-berlin.de/assets/images/icon-filter-license@2x.png" alt="Filter Lizenz">Lizenz <span>&#x25BC;</span></a>
-                  <ul class="filter-selection" data-key="l">
-                      {{FILTERLICENSE}}
-                  </ul>
-              </li>
-          </ul>
-      </div>
-      <div id="search">
-          <input type="text" placeholder="Suche" />
-          <a>Suche zurücksetzen</a>
-      </div>
       <div id="list">
           <ul>
-              {{DATALIST}}
+              {% for dataset in datasets %}
+              {% if dataset.lang == startpage.locale %} 
+              <li>
+                <a href="{{ site.baseUrl }}/{{ startpage.locale }}/dataset/{{ dataset.folder }}">
+                    {% if dataset.hasThumb %}
+                    <img src="{{ site.s3BaseUrl }}{{ dataset.folder }}thumb.jpg" alt="{{ dataset.meta.meta[startpage.locale].title }}" />
+                    {% else %}
+                    <img src="{{ site.baseUrl }}/assets/images/file@2x.png" alt="{{ dataset.meta.meta[startpage.locale].title }}" />
+                    {% endif %}
+                    <span class="data-title">{{ dataset.meta.meta[startpage.locale].title }}</span>
+                    <span class="col1">
+                        <span class="key">{% if startpage.locale == "en" %}Formats{% else %}Formate{% endif %}</span>:<span class="value">
+                            {% for format in dataset.formats %}
+                            {% if site.formatter[format.format] %}{{ site.formatter[format.format] }}{% else %}{{ format.format }}{% endif %}{% if forloop.last == false %},{% endif %}{% endfor %}
+                        </span><br /><br />
+                        {% if dataset.meta.meta.geolevel.length > 0 %}
+                        <span class="key">{% if startpage.locale == "en" %}Resolution{% else %}Auflösung{% endif %}</span>:<span class="value">{% if site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] %}{{ site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] }}{% else %}{{ dataset.meta.meta.geolevel }}{% endif %}</span>
+                        {% endif %}
+                    </span>
+                    <span class="col2">
+                        <span class="key">{% if startpage.locale == "en" %}Keywords{% else %}Stichworte{% endif %}</span>:<span class="value">{{ dataset.meta.meta[startpage.locale].keywords | join: "," }}</span><br /><br />
+                        {% if dataset.meta.meta.temporal.size > 2 %}
+                        <span class="key">{% if startpage.locale == "en" %}Years{% else %}Jahre{% endif %}</span>:<span class="value">{{ dataset.meta.meta.temporal[0] }}-{{ dataset.meta.meta.temporal[1] }}</span>
+                        {% endif %}
+                    </span>
+                    <hr class="clear" />
+                </a>
+              </li>
+              {% endif %}
+              {% endfor %}
           </ul>
-      </div>
-      <div id="map-container">
-
-          <div id="map"></div>
       </div>
       <hr class="odclear clear" />
   </div>
