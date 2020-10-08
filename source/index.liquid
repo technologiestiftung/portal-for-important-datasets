@@ -1,0 +1,16 @@
+---
+eleventyExcludeFromCollections: true
+layout: layouts/startpage.liquid
+pagination:
+  data: pagedata
+  alias: startpage
+  size: 1
+pagedata:
+  - dest: de
+    locale: de
+  - dest: en
+    locale: en
+  - dest: root
+    locale: de
+permalink: "{% if startpage.dest != 'root' %}{{ startpage.dest }}/{% endif %}index.html"
+---

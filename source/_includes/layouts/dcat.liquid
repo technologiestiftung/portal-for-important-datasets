@@ -1,0 +1,111 @@
+---
+title: dcat
+---
+{
+    "dcat:Catalog": {
+        "dct:title": [
+            "{{ site[dataset.lang].metaTitle }}"
+        ],
+        "dct:description": [
+            "{{ site[dataset.lang].metaDescription }}"
+        ],
+        "dct:publisher": {
+            "foaf:name": "Technologiestiftung Berlin"
+        },
+        "dct:issued": "{{ dataset.meta.meta.timestamp }}",
+        "dcat:dataset": [
+            "{{ site.baseUrl }}/dataset/{{ dataset.folder }}"
+        ],
+        "dct:isPartOf": [
+            "{{ site.baseUrl }}"
+        ]
+    },
+    "dcat:Dataset": [
+        {
+            "dct:identifier": [
+                "{{ site.baseUrl }}/dataset/{{ dataset.folder }}"
+            ],
+            "dct:title": [
+                "{{ dataset.meta.meta[dataset.lang].title }}"
+            ],
+            "dct:description": [
+                "{{ dataset.meta.meta[dataset.lang].description }}"
+            ],
+            "dcatde:originator": [
+                {
+                    "foaf:name": "{{ dataset.meta.meta.author.name }}",
+                    "dct:type": "http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/processor"
+                }
+            ],
+            "dcat:contactPoint": [
+                {
+                    "vcard:fn": "{{ dataset.meta.meta.author.name }}",
+                    "vcard:hasEmail": "mailto:{{ dataset.meta.meta.author.email }}"
+                }
+            ],
+            "dcat:keyword": [
+                {% for keyword in dataset.meta.meta[dataset.lang].keywords %}
+                "{{ keyword }}"{% if forloop.last == false %},{% endif %}{% endfor %}
+            ],
+            "dct:spatial": [
+                {
+                    "type": "Polygon",
+                    "crs": "urn:ogc:def:crs:OGC:1.3:CRS84",
+                    "coordinates": [
+                        [
+                            [
+                                13.088347614730992,
+                                52.338245549997296
+                            ],
+                            [
+                                13.761159145035254,
+                                52.338245549997296
+                            ],
+                            [
+                                13.761159145035254,
+                                52.67550765972353
+                            ],
+                            [
+                                13.088347614730992,
+                                52.67550765972353
+                            ],
+                            [
+                                13.088347614730992,
+                                52.338245549997296
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "dct:temporal": [
+            {% if dataset.meta.meta.temporal.size > 0 %}
+                {
+                    "schema:startDate": "{{ dataset.meta.meta.temporal[0] }}",
+                    "schema:endDate": "{{ dataset.meta.meta.temporal[1] }}"
+                }
+            {% endif %}
+            ],
+            "dct:modified": "{{ dataset.meta.meta.timestamp }}",
+            "dcat:distribution": [
+                {% for format in dataset.formats %}
+                "{{ site.s3BaseUrl }}{{ format.file }}"{% if forloop.last == false %},{% endif %}{% endfor %}
+            ],
+            "dct:license": [
+                "{{ dataset.meta.meta.license | replace: '"', "'" }}"
+            ],
+            "dcatde:politicalGeocodingLevelURI": [
+                "http://dcat-ap.de/def/politicalGeocoding/Level/state",
+                "http://dcat-ap.de/def/politicalGeocoding/Level/administrativeDistrict",
+                "http://dcat-ap.de/def/politicalGeocoding/Level/municipality",
+                "{{ dataset.meta.meta.geolevel }}"
+            ],
+            "dcatde:politicalGeocodingURI": [
+                "http://dcat-ap.de/def/politicalGeocoding/stateKey/11",
+                "http://dcat-ap.de/def/politicalGeocoding/regionalKey/110000000000"
+            ],
+            "dcatde:geocodingText": [
+                "Berlin, Stadt"
+            ]
+        }
+    ]
+}
