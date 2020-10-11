@@ -1,347 +1,347 @@
-#funding-foot{
-  width:100%;
-  background-color:#fff;
-  clear:both;
-  padding:30px 0;
-  font-family: 'Roboto Mono', monospace;
-  font-size:13px;
+#funding-foot {
+  width: 100%;
+  background-color: #fff;
+  clear: both;
+  padding: 30px 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
   line-height: 24px;
-  color:#555;
+  color: #555;
 }
 
-#funding-foot-inner{
+#funding-foot-inner {
   display: block;
-  margin:0 auto;
-  max-width:90%;
+  margin: 0 auto;
+  max-width: 90%;
 }
 
-
-.clear-sm{
-	visibility: hidden;
-	clear:both;
+.clear-sm {
+  visibility: hidden;
+  clear: both;
 }
 
-p.copy{
-	font-family: 'Roboto Mono', monospace;
+p.copy {
+  font-family: "Roboto Mono", monospace;
 }
 
-#nav ul li.opendata.detail{
-	border-right:none;
-	padding-right: 0;
+#nav ul li.opendata.detail {
+  border-right: none;
+  padding-right: 0;
 }
 
-#teaser-text{
-	width:100%;
-	max-width:700px;
-	margin:50px auto;
+#teaser-text {
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto;
 }
 
-#teaser-text p{
-	padding:20px 0 20px 0;
-	width:100%;
-	max-width: 100%;
-	font-size:18px;
-	line-height:28px;
-	overflow:hidden;
+#teaser-text p {
+  padding: 20px 0 20px 0;
+  width: 100%;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 28px;
+  overflow: hidden;
 }
 
-#teaser-text h1{
-	padding:0 20px 10px 20px;
-	font-size:32px;
+#teaser-text h1 {
+  padding: 0 20px 10px 20px;
+  font-size: 32px;
 }
 
-#teaser h1 img{
-	width:90px;
-	float:left;
-	margin-right:15px;
-	margin-top:-23px;
+#teaser h1 img {
+  width: 90px;
+  float: left;
+  margin-right: 15px;
+  margin-top: -23px;
 }
 
-#teaser.detail h1 img{
-	width:54px;
-	float:none;
-	margin:0;
+#teaser.detail h1 img {
+  width: 54px;
+  float: none;
+  margin: 0;
 }
 
-#teaser.detail h1{
-	text-align: center;
+#teaser.detail h1 {
+  text-align: center;
 }
 
-#teaser.detail #teaser-text{
-	max-width: 100%;
+#teaser.detail #teaser-text {
+  max-width: 100%;
 }
 
-#sidebar{
-	float:left;
-	width:100%;
+#sidebar {
+  float: left;
+  width: 100%;
 }
 
-#sidebar>ul>li{
-	background-color:#fff;
-	border-top:3px solid #000;
-	margin-bottom:10px;
-	padding:10px 0;
-	height:61px;
+#sidebar > ul > li {
+  background-color: #fff;
+  border-top: 3px solid #000;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  height: 61px;
 }
 
-#sidebar>ul>li img{
-	width:52px;
-	margin:0 10px;
-	float:left;
+#sidebar > ul > li img {
+  width: 52px;
+  margin: 0 10px;
+  float: left;
 }
 
-#sidebar>ul>li a{
-	line-height: 40px;
-	font-family: 'ClanOT-Medium', Helvetica, sans-serif;
-	font-weight:400;
-	display: block;
-	cursor: pointer;
+#sidebar > ul > li a {
+  line-height: 40px;
+  font-family: "ClanOT-Medium", Helvetica, sans-serif;
+  font-weight: 400;
+  display: block;
+  cursor: pointer;
 }
 
-#sidebar>ul>li.fold{
-	overflow: hidden;
-	height:54px;
+#sidebar > ul > li.fold {
+  overflow: hidden;
+  height: 54px;
 }
 
-#sidebar>ul>li.fold.active{
-	height:auto;
+#sidebar > ul > li.fold.active {
+  height: auto;
 }
 
-#sidebar>ul>li.fold img{
-	width:32px;
+#sidebar > ul > li.fold img {
+  width: 32px;
 }
 
-#sidebar>ul>li.fold a{
-	height:44px;
-	line-height: 36px;
-	font-family: 'ClanOT-Medium', Helvetica, sans-serif;
-	font-weight:400;
+#sidebar > ul > li.fold a {
+  height: 44px;
+  line-height: 36px;
+  font-family: "ClanOT-Medium", Helvetica, sans-serif;
+  font-weight: 400;
 }
 
-#sidebar>ul>li.fold a::selection {
+#sidebar > ul > li.fold a::selection {
   background: #fff;
 }
-#sidebar>ul>li.fold a::-moz-selection {
+#sidebar > ul > li.fold a::-moz-selection {
   background: #fff;
 }
 
-#sidebar>ul>li.fold a span{
-	float:right;
-	margin-right:10px;
-	font-size:15px;
-	color:rgba(0,0,0,0.5);
+#sidebar > ul > li.fold a span {
+  float: right;
+  margin-right: 10px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
-#sidebar>ul>li.fold a:hover span{
-	color:rgba(0,0,0,1);
+#sidebar > ul > li.fold a:hover span {
+  color: rgba(0, 0, 0, 1);
 }
 
-#sidebar ul ul li{
-	padding:3px 0 6px 30px;
-	margin-left:10px;
-	font-family: 'Roboto Mono', monospace;
-	background-size:20px 20px;
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	background-image:url('https://data.technologiestiftung-berlin.de/assets/images/icon-check@2x.png');
+#sidebar ul ul li {
+  padding: 3px 0 6px 30px;
+  margin-left: 10px;
+  font-family: "Roboto Mono", monospace;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: url("../images/icon-check@2x.png");
 }
 
-#sidebar ul ul li:hover{
-	cursor: pointer;
-	background-image:url('https://data.technologiestiftung-berlin.de/assets/images/icon-precheck@2x.png');
+#sidebar ul ul li:hover {
+  cursor: pointer;
+  background-image: url("../images/icon-precheck@2x.png");
 }
 
 #sidebar ul ul li.active,
-#sidebar ul ul li.active:hover{
-	background-image:url('https://data.technologiestiftung-berlin.de/assets/images/icon-checked@2x.png');
+#sidebar ul ul li.active:hover {
+  background-image: url("../images/icon-checked@2x.png");
 }
 
-#search, #list{
-	clear:both;
-	float:right;
-	width:100%;
+#search,
+#list {
+  clear: both;
+  float: right;
+  width: 100%;
 }
 
-#search input{
-	font-family: 'Roboto Mono', monospace;
-	font-style: italic;
-	float:left;
-	width:100%;
-	font-size:24px;
-	padding:10px 0;
-	text-indent:15px;
-	border:none;
-	border-top:3px solid #000;
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size:40px 26px;
-	background-image:url('https://data.technologiestiftung-berlin.de/assets/images/search@2x.png');
-	outline:none;
+#search input {
+  font-family: "Roboto Mono", monospace;
+  font-style: italic;
+  float: left;
+  width: 100%;
+  font-size: 24px;
+  padding: 10px 0;
+  text-indent: 15px;
+  border: none;
+  border-top: 3px solid #000;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 40px 26px;
+  background-image: url("../images/search@2x.png");
+  outline: none;
 }
 
-#search a{
-	display: none;
-	cursor: pointer;
-	float:right;
-	margin-top:-33px;
-	margin-right:15px;
-	width:17px;
-	height:17px;
-	overflow: hidden;
-	text-indent: 20px;
-	background-image:url('https://data.technologiestiftung-berlin.de/assets/images/icon-reset@2x.png');
-	background-size:17px 17px;
+#search a {
+  display: none;
+  cursor: pointer;
+  float: right;
+  margin-top: -33px;
+  margin-right: 15px;
+  width: 17px;
+  height: 17px;
+  overflow: hidden;
+  text-indent: 20px;
+  background-image: url("../images/icon-reset@2x.png");
+  background-size: 17px 17px;
 }
 
-#search a:hover{
-	opacity: 0.5;
+#search a:hover {
+  opacity: 0.5;
 }
 
-hr.clear.odclear{
-	margin-top:100px;
-	margin-bottom:100px;
+hr.clear.odclear {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
-hr.clear.odclear-half{
-	margin-top:50px;
-	margin-bottom:50px;
+hr.clear.odclear-half {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-#list{
-	margin-top:30px;
-	font-family: 'Roboto Mono', monospace;
+#list {
+  margin-top: 30px;
+  font-family: "Roboto Mono", monospace;
 }
 
-#list>ul>li{
-	display: block;
-	border-top:3px solid #000;
-	padding:10px 0;
-	background-color: #fff;
-	margin-bottom:10px;
+#list > ul > li {
+  display: block;
+  border-top: 3px solid #000;
+  padding: 10px 0;
+  background-color: #fff;
+  margin-bottom: 10px;
 }
 
-#list img{
-	width:108px;
-	margin:0 10px;
-	float:left;
+#list img {
+  width: 108px;
+  margin: 0 10px;
+  float: left;
 }
 
-.data-title{
-	font-weight:bold;
-	font-size:18px;
-	padding-bottom:10px;
-	display: block;
+.data-title {
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 10px;
+  display: block;
 }
 
-#list span.key{
-	font-weight:bold;
+#list span.key {
+  font-weight: bold;
 }
 
-#list a{
-	text-decoration: none;
-	color:#000;
+#list a {
+  text-decoration: none;
+  color: #000;
 }
 
-#list li:hover{
-	transform:scale(0.99);
-	opacity: 0.5;
+#list li:hover {
+  transform: scale(0.99);
+  opacity: 0.5;
 }
 
 #list span.col1,
-#list span.col2{
-	display: block;
-	clear:both;
-	padding-left:10px;
-	font-size:12px;
-	text-align: left;
+#list span.col2 {
+  display: block;
+  clear: both;
+  padding-left: 10px;
+  font-size: 12px;
+  text-align: left;
 }
 
 ul.meta-list,
-ul.meta-list li{
-	list-style: none;
-	margin:0;
-	padding: 0;
+ul.meta-list li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-ul.meta-list li{
-	border-bottom:1px dashed black;
-	padding: 10px 0;
+ul.meta-list li {
+  border-bottom: 1px dashed black;
+  padding: 10px 0;
 }
 
-ul.meta-list .key{
-	display: inline-block;
-	width:30%;
-	font-weight: bold;
-	vertical-align: top;
+ul.meta-list .key {
+  display: inline-block;
+  width: 30%;
+  font-weight: bold;
+  vertical-align: top;
 }
 
-ul.meta-list .value{
-	vertical-align: top;
-	display: inline-block;
-	width:65%;
-	font-weight: normal;
-	word-wrap: break-word;
+ul.meta-list .value {
+  vertical-align: top;
+  display: inline-block;
+  width: 65%;
+  font-weight: normal;
+  word-wrap: break-word;
 }
 
-#map{
-	width:100%;
-	height:500px;
+#map {
+  width: 100%;
+  height: 500px;
 }
 
-.leaflet-popup-content{
-	word-wrap: break-word;
+.leaflet-popup-content {
+  word-wrap: break-word;
 }
 
-@media (min-width: 500px){
-	#list span.col1,
-	#list span.col2{
-		padding: 0;
-		float:left;
-		width:40%;
-		clear: none;
-	}
+@media (min-width: 500px) {
+  #list span.col1,
+  #list span.col2 {
+    padding: 0;
+    float: left;
+    width: 40%;
+    clear: none;
+  }
 }
 
 @media (min-width: 768px) {
-	#sidebar{
-		width:35%;
-	}
+  #sidebar {
+    width: 35%;
+  }
 
-	#search{
-		clear:none;
-		width:60%;
-	}
+  #search {
+    clear: none;
+    width: 60%;
+  }
 
-	#list{
-		clear:right;
-		width:60%;
-	}
+  #list {
+    clear: right;
+    width: 60%;
+  }
 }
 
 @media (min-width: 1024px) {
-	#sidebar{
-		width:25%;
-	}
+  #sidebar {
+    width: 25%;
+  }
 
-	#search{
-		width:70%;
-	}
+  #search {
+    width: 70%;
+  }
 
-	#list{
-		width:70%;
-	}
+  #list {
+    width: 70%;
+  }
 }
 
 @media (min-width: 1200px) {
-	#sidebar{
-		width:20%;
-	}
+  #sidebar {
+    width: 20%;
+  }
 
-	#search{
-		width:75%;
-	}
+  #search {
+    width: 75%;
+  }
 
-	#list{
-		width:75%;
-	}
+  #list {
+    width: 75%;
+  }
 }
