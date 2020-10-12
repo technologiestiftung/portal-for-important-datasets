@@ -6,7 +6,7 @@ layout: layouts/default.liquid
   <div id="teaser" class="detail">
       <div class="container small">
           <div id="teaser-text">
-              <h1><img src="https://data.technologiestiftung-berlin.de/assets/images/file@2x.png" alt="Daten"><br />{{ dataset.meta.meta[dataset.lang].title }}</h1>
+              <h1><img src="/assets/images/file@2x.png" alt="Daten"><br />{{ dataset.meta.meta[dataset.lang].title }}</h1>
               {% if dataset.hasPreview %}<img src="{{ site.s3BaseUrl }}{{ dataset.folder }}preview.jpg" alt="{% if dataset.lang == "de" %}Vorschau{% else %}Preview{% endif %}" />{% endif %}
               <p class="p-top">{{ dataset.meta.meta[dataset.lang].description }}</p>
           </div>
