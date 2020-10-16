@@ -3,18 +3,23 @@ title: startpage
 layout: layouts/default.liquid
 ---
 <header>
-  <div id="teaser">
-      <div class="container">
-          <div id="teaser-text">
-              <h1><img src="/assets/images/logo@2x.png" alt="Daten">Daten</h1>
-              <p>In den Projekten des <a href="http://lab.technologiestiftung-berlin.de">Ideation &amp; Prototyping Labs</a> spielen offene Daten eine zentrale Rolle. In diesem Datenportal stellen wir speziell aufbereitete, veredelte und kombinierte Datensätze zur Verfügung. Originäre offene Daten des Landes Berlin finden Sie auf <a href="https://daten.berlin.de/">daten.berlin.de</a>, dem <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, dem <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> und der Seite des <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amts für Statistik Berlin-Brandenburg</a>.</p>
-          </div>
-          <hr class="clear" />
+    <div class="section bl">
+        <a class="blog-link" href="https://odis-berlin.de/projekte/">Zurück zur ODIS-Webseite</a>
       </div>
-  </div>
+    <div class="section pb-6 pt-6" id="intro">
+        <p class="headline-05">Ein Dienst der Open Data Informationsstelle (ODIS)
+        </p>
+        <div id="teaser">
+        <h1 id="title"><img src="/assets/images/logo@2x.png" alt="Daten">Daten</h1>
+    </div><p class="headline-02b">
+        Basisdatensätze von Berlin
+      </p>
+        <p class="headline-04"> In diesem Datenportal stellen wir speziell aufbereitete, veredelte und kombinierte Datensätze zur Verfügung. Originäre offene Daten des Landes Berlin finden Sie auf <a href="https://daten.berlin.de/">daten.berlin.de</a>, dem <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, dem <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> und der Seite des <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amts für Statistik Berlin-Brandenburg</a>.</p>
+    </div>
 </header>
 <main>
-  <div class="container">
+    <div class="grey-bg">
+  <div class="container_list">
       <div id="list">
           <ul>
               {% for dataset in datasets %}
@@ -49,6 +54,7 @@ layout: layouts/default.liquid
               {% endfor %}
           </ul>
       </div>
+    </div>
       <hr class="odclear clear" />
   </div>
 </main>

@@ -20,9 +20,6 @@
   clear: both;
 }
 
-p.copy {
-  font-family: "Roboto Mono", monospace;
-}
 
 #nav ul li.opendata.detail {
   border-right: none;
@@ -138,7 +135,7 @@ p.copy {
 #sidebar ul ul li {
   padding: 3px 0 6px 30px;
   margin-left: 10px;
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -163,7 +160,7 @@ p.copy {
 }
 
 #search input {
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
   font-style: italic;
   float: left;
   width: 100%;
@@ -209,12 +206,12 @@ hr.clear.odclear-half {
 
 #list {
   margin-top: 30px;
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
 }
 
 #list > ul > li {
   display: block;
-  border-top: 3px solid #000;
+  /* border-top: 2px solid rgb(24, 61, 143); */
   padding: 10px 0;
   background-color: #fff;
   margin-bottom: 10px;

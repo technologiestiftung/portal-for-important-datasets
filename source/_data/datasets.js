@@ -84,30 +84,30 @@ const getDatasets = () => {
     })
     // download geojsons to overcome CORS
     // comment this whole promise block out for quicker building
-    .then((objects) => {
-      return Promise.all(objects.map((object, id) => {
-        if (object.hasGeojson) {
-          const url = config.aws.bucketUrl + object.hasGeojson;
-          return fetch(url)
-            .then((response) => {
-              if (response.ok) {
-                return response.json();
-              } else {
-                throw Error(`Error fetching ${url}`)
-              }
-            })
-            .then((json) => {
-              objects[id].geojson = JSON.stringify(json);
-              return Promise.resolve();
-            }); 
-        } else {
-          return Promise.resolve();
-        }
-      }))
-      .then(() => {
-        return objects;
-      });
-    })
+    // .then((objects) => {
+    //   return Promise.all(objects.map((object, id) => {
+    //     if (object.hasGeojson) {
+    //       const url = config.aws.bucketUrl + object.hasGeojson;
+    //       return fetch(url)
+    //         .then((response) => {
+    //           if (response.ok) {
+    //             return response.json();
+    //           } else {
+    //             throw Error(`Error fetching ${url}`)
+    //           }
+    //         })
+    //         .then((json) => {
+    //           objects[id].geojson = JSON.stringify(json);
+    //           return Promise.resolve();
+    //         }); 
+    //     } else {
+    //       return Promise.resolve();
+    //     }
+    //   }))
+    //   .then(() => {
+    //     return objects;
+    //   });
+    // })
     .then((objects) => {
       const pageList = [];
       objects.filter((obj) => obj !== null)
