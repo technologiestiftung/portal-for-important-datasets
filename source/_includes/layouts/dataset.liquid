@@ -3,18 +3,24 @@ title: dataset
 layout: layouts/default.liquid
 ---
 <header>
+  <div class="section bl">
+    <a class="blog-link" href="https://odis-berlin.de/projekte/">Zurück zur Datensatzübersicht</a>
+  </div>
   <div id="teaser" class="detail">
       <div class="container small">
           <div id="teaser-text">
               <h1><img src="/assets/images/file@2x.png" alt="Daten"><br />{{ dataset.meta.meta[dataset.lang].title }}</h1>
               {% if dataset.hasPreview %}<img src="{{ site.s3BaseUrl }}{{ dataset.folder }}preview.jpg" alt="{% if dataset.lang == "de" %}Vorschau{% else %}Preview{% endif %}" />{% endif %}
-              <p class="p-top">{{ dataset.meta.meta[dataset.lang].description }}</p>
+            </div>
           </div>
-      </div>
+        </div>
+  <div class="container small">
+      <h4>Beschreibung</h4>
+      <p class="p-bottom copy">{{ dataset.meta.meta[dataset.lang].description }}</p>
       <hr class="clear-sm" />
-  </div>
+  </div>  
 </header>
-<main class="grey-bg">
+<main class="grey-bg pt-1">
   <div class="container small p-bottom">
       <h4 class="p-bottom">Downloads</h4>
       <ul class="download-list">
@@ -30,21 +36,21 @@ layout: layouts/default.liquid
     {% if dataset.hasGeojson %}<div id="map" data-geojson="{{ site.baseUrl }}/{{ dataset.lang }}/dataset/{{ dataset.folder }}data.geojson"></div>{% endif %}
   </div>
   <div class="container small">
-      <h2 class="p-top">Metadaten</h2>
+      <h4 class="p-top">Metadaten</h4>
       <p class="p-bottom copy">Metadaten im DCAT-AP.de Format zum Download: <a href="./dcat.json">DCAT-AP.de.JSON</a></p>
       <ul class="meta-list">
-        <li><span class="key">{% if dataset.lang == "en" %}Last modified{% else %}Zuletzt aktualisiert{% endif %}</span>: <span class="value">{{ dataset.meta.meta.timestamp }}</span></li>
-        <li><span class="key">{% if dataset.lang == "en" %}Provider{% else %}Urheber{% endif %}</span>: <span class="value">{{ dataset.meta.meta.provider }}</span></li>
+        <li><span class="key headline-04">{% if dataset.lang == "en" %}Last modified{% else %}Zuletzt aktualisiert{% endif %}</span> <span class="value">{{ dataset.meta.meta.timestamp }}</span></li>
+        <li><span class="key headline-04">{% if dataset.lang == "en" %}Provider{% else %}Urheber{% endif %}</span> <span class="value">{{ dataset.meta.meta.provider }}</span></li>
         {% if dataset.meta.meta.temporal.size > 0 %}
-          <li><span class="key">{% if dataset.lang == "en" %}Period{% else %}Zeitspanne{% endif %}</span>: <span class="value">{{ dataset.meta.meta.temporal[0] }}-{{ dataset.meta.meta.temporal[1] }}</span></li>
+          <li><span class="key headline-04">{% if dataset.lang == "en" %}Period{% else %}Zeitspanne{% endif %}</span> <span class="value">{{ dataset.meta.meta.temporal[0] }}-{{ dataset.meta.meta.temporal[1] }}</span></li>
         {% endif %}
         {% if dataset.meta.meta.keywords.length > 0 %}
-          <li><span class="key">{% if dataset.lang == "en" %}Keywords{% else %}Stichworte{% endif %}</span>: <span class="value">{{ dataset.meta.meta[l].keywords | join: "," }}</span></li>
+          <li><span class="key headline-04">{% if dataset.lang == "en" %}Keywords{% else %}Stichworte{% endif %}</span> <span class="value">{{ dataset.meta.meta[l].keywords | join: "," }}</span></li>
         {% endif %}
         {% if dataset.meta.meta.geolevel.length > 0 %}
-          <li><span class="key">{% if dataset.lang == "en" %}Spatial Resolution{% else %}Räumliche Auflösung{% endif %}</span>: <span class="value">{% if site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] %}{{ site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] }}{% else %}{{ dataset.meta.meta.geolevel }}{% endif %}</span></li>
+          <li><span class="key headline-04">{% if dataset.lang == "en" %}Spatial Resolution{% else %}Räumliche Auflösung{% endif %}</span> <span class="value">{% if site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] %}{{ site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] }}{% else %}{{ dataset.meta.meta.geolevel }}{% endif %}</span></li>
         {% endif %}
-        <li><span class="key">{% if dataset.lang == "en" %}License{% else %}Lizenz{% endif %}</span>: <span class="value">{{ dataset.meta.meta.license }}</span></li>
+        <li><span class="key headline-04">{% if dataset.lang == "en" %}License{% else %}Lizenz{% endif %}</span> <span class="value">{{ dataset.meta.meta.license }}</span></li>
 
       </ul>
   </div>

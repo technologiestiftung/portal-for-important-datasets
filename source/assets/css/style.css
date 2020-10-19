@@ -29,7 +29,7 @@
 #teaser-text {
   width: 100%;
   max-width: 700px;
-  margin: 50px auto;
+  margin: 10px auto;
 }
 
 #teaser-text p {
@@ -37,7 +37,7 @@
   width: 100%;
   max-width: 100%;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 22px;
   overflow: hidden;
 }
 
@@ -275,6 +275,7 @@ ul.meta-list .key {
   width: 30%;
   font-weight: bold;
   vertical-align: top;
+  line-height: 24px;
 }
 
 ul.meta-list .value {
@@ -283,6 +284,7 @@ ul.meta-list .value {
   width: 65%;
   font-weight: normal;
   word-wrap: break-word;
+  line-height: 24px;
 }
 
 #map {
