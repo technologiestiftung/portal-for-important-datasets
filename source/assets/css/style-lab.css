@@ -2,7 +2,7 @@
 #teaser {
   width: 100%;
   background-color: #fff;
-  background-image: url("../images/top_bg.png");
+  /* background-image: url("../images/top_bg.png"); */
   background-position: center 250px;
   background-repeat: no-repeat;
   padding-top: 1.5rem;
