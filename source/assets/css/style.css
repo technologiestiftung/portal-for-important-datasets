@@ -224,7 +224,10 @@ hr.clear.odclear-half {
 
 #list img {
   width: 108px;
-  margin: 0 10px;
+  margin: 15px 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   float: left;
 }
 
@@ -232,6 +235,7 @@ hr.clear.odclear-half {
   font-weight: bold;
   font-size: 18px;
   padding-bottom: 10px;
+  padding-right: 10px;
   display: block;
 }
 
@@ -252,8 +256,8 @@ hr.clear.odclear-half {
 #list span.col1,
 #list span.col2 {
   display: block;
-  clear: both;
-  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
   font-size: 12px;
   text-align: left;
 }
@@ -299,31 +303,11 @@ ul.meta-list .value {
   #list {
     width: 90%;
   }
-  
-  #list span.col2 {
-    display: none;
-  }
-  #list img {
-    width: 108px;
-    margin: 0 10px;
-    padding-bottom: 10px;
-    float: left;
-  }
-  
   .data-title {
     padding-top: 20px;
     padding-left: 10px;
   }
 }
-/* @media (min-width: 500px) {
-  #list span.col1,
-  #list span.col2 {
-    padding: 0;
-    float: left;
-    width: 40%;
-    clear: none;
-  }
-} */
 
 @media (min-width: 768px) {
   #sidebar {
@@ -336,9 +320,6 @@ ul.meta-list .value {
   }
   #list span.col1 {
     width: 77%;}
-  #list span.col2 {
-    display: none;
-  }
   #list {
     width: 88%;
   }
@@ -372,3 +353,30 @@ ul.meta-list .value {
   }
 }
 
+@media (max-width: 1200px) {
+  #list span.col2 {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+  #list img{
+    display:none;
+  }
+  .data-title {
+    padding-left: 20px;
+  }
+  #list span.col1,
+  #list span.col2 {
+    padding-left: 20px;
+  }
+  #teaser.detail img {
+    width: 350px;
+    float: none;
+    margin: 0;
+  }
+  .p-bottom.copy {
+    max-width: 320px;
+    word-wrap: break-word;
+  }
+}

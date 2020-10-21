@@ -10,11 +10,11 @@ layout: layouts/default.liquid
         <p class="headline-05">Ein Dienst der Open Data Informationsstelle (ODIS)
         </p>
         <div id="teaser" style="padding-top:1rem">
-        <h1 id="title"><img src="/assets/images/logo@2x.png" alt="Daten">Daten</h1>
-    </div><p class="headline-02b">
+        <h1 id="title"><img src="/assets/images/logo@2x.png" style="padding-top:26px" alt="Daten">Daten</h1>
+    <p class="headline-02b">
         Basisdatensätze von Berlin
-      </p>
-        <p class="headline-04 pb-6"> In diesem Datenportal stellt ODIS speziell aufbereitete, veredelte und kombinierte Datensätze zur Verfügung. Der Fokus liegt dabei auf Geodatensätzen, die aus unserer Sicht häufig gefragt sind und für viele Datenanalysen und Visualisierungen für den Raum Berlin genutzt werden. Diese werden hier in den gängigen Formaten bereitgestellt, die für die meisten Datennutzer*innen besonders leicht nutzbar und weiter zu verarbeiten sind.  Originäre offene Daten des Landes Berlin finden Sie auf <a href="https://daten.berlin.de/">daten.berlin.de</a>, dem <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, dem <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> und der Seite des <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amts für Statistik Berlin-Brandenburg</a>.</p>
+      </p></div>
+        <p class="headline-04"> In diesem Datenportal stellt ODIS speziell aufbereitete, veredelte und kombinierte Datensätze zur Verfügung. Der Fokus liegt dabei auf Geodatensätzen, die aus unserer Sicht häufig gefragt sind und für viele Datenanalysen und Visualisierungen für den Raum Berlin genutzt werden. Diese werden hier in den gängigen Formaten bereitgestellt, die für die meisten Datennutzer*innen besonders leicht nutzbar und weiter zu verarbeiten sind.  Originäre offene Daten des Landes Berlin finden Sie auf <a href="https://daten.berlin.de/">daten.berlin.de</a>, dem <a href="http://fbinter.stadt-berlin.de/fb/index.jsp">FIS Broker</a>, dem <a href="http://www.gsi-berlin.info/">Gesundheits- und Sozialinformationssystem (GSI)</a> und der Seite des <a href="https://www.statistik-berlin-brandenburg.de/datenbank/inhalt-datenbank.asp">Amts für Statistik Berlin-Brandenburg</a>.</p>
     </div>
 </header>
 <main>
@@ -38,13 +38,13 @@ layout: layouts/default.liquid
                             {% if site.formatter[format.format] %}{{ site.formatter[format.format] }}{% else %}{{ format.format }}{% endif %}{% if forloop.last == false %},{% endif %}{% endfor %}
                         </span><br /><br />
                         {% if dataset.meta.meta.geolevel.length > 0 %}
-                        <span class="key">{% if startpage.locale == "en" %}Resolution{% else %}Auflösung{% endif %}</span>:<span class="value">{% if site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] %}{{ site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] }}{% else %}{{ dataset.meta.meta.geolevel }}{% endif %}</span>
+                        <span class="key">{% if startpage.locale == "en" %}Resolution{% else %}Auflösung{% endif %}</span>: <span class="value">{% if site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] %}{{ site.formatter.geo[dataset.lang][dataset.meta.meta.geolevel] }}{% else %}{{ dataset.meta.meta.geolevel }}{% endif %}</span>
                         {% endif %}
                     </span>
                     <span class="col2">
-                        <span class="key">{% if startpage.locale == "en" %}Keywords{% else %}Stichworte{% endif %}</span>:<span class="value">{{ dataset.meta.meta[startpage.locale].keywords | join: "," }}</span><br /><br />
+                        <span class="key">{% if startpage.locale == "en" %}Keywords{% else %}Stichworte{% endif %}</span>: <span class="value">{{ dataset.meta.meta[startpage.locale].keywords | join: "," }}</span><br /><br />
                         {% if dataset.meta.meta.temporal.size > 2 %}
-                        <span class="key">{% if startpage.locale == "en" %}Years{% else %}Jahre{% endif %}</span>:<span class="value">{{ dataset.meta.meta.temporal[0] }}-{{ dataset.meta.meta.temporal[1] }}</span>
+                        <span class="key">{% if startpage.locale == "en" %}Years{% else %}Jahre{% endif %}</span>: <span class="value">{{ dataset.meta.meta.temporal[0] }}-{{ dataset.meta.meta.temporal[1] }}</span>
                         {% endif %}
                     </span>
                     <hr class="clear" />
