@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = function (eleventyConfig) {
   // You can return your Config object (optional).
   eleventyConfig.setDataDeepMerge(true);
