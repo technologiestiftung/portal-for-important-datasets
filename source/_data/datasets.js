@@ -1,22 +1,26 @@
-const config = require("../../config.json");
+const bucketUrl = process.env.bucketUrl;
+const bucket = process.env.bucket;
+const region = process.env.region;
+const id = process.env.id;
+const key = process.env.key;
 
 const fetch = require("node-fetch");
 
 const AWS = require("aws-sdk");
-AWS.config.update({region: config.aws.region});
+AWS.config.update({region: region});
 
 const s3 = new AWS.S3({
-  accessKeyId : config.aws.id,
-  secretAccessKey : config.aws.key
+  accessKeyId : id,
+  secretAccessKey : key
 });
 
 const getDatasets = () => {
   // get all the folders in root
-  return s3.listObjectsV2({ Bucket: config.aws.bucket, Delimiter: "/" }).promise()
+  return s3.listObjectsV2({ Bucket: bucket, Delimiter: "/" }).promise()
     .then((objects) => {
       return Promise.all(objects.CommonPrefixes.map((obj) => {
         // get all objects in the folder
-        return s3.listObjectsV2({ Bucket: config.aws.bucket, Delimiter: "/", Prefix: obj.Prefix }).promise()
+        return s3.listObjectsV2({ Bucket: bucket, Delimiter: "/", Prefix: obj.Prefix }).promise()
           .then((dataItems) => {
             const dataset = {
               folder: obj.Prefix,
@@ -61,7 +65,7 @@ const getDatasets = () => {
 
             // if there is a meta file get it an merge into data set, otherwise return null
             if (dataset.meta) {
-              const url = config.aws.bucketUrl + obj.Prefix + "meta.json";
+              const url = bucketUrl + obj.Prefix + "meta.json";
               return fetch(url)
                 .then((response) => {
                   if (response.ok) {
@@ -84,30 +88,30 @@ const getDatasets = () => {
     })
     // download geojsons to overcome CORS
     // comment this whole promise block out for quicker building
-    .then((objects) => {
-      return Promise.all(objects.map((object, id) => {
-        if (object.hasGeojson) {
-          const url = config.aws.bucketUrl + object.hasGeojson;
-          return fetch(url)
-            .then((response) => {
-              if (response.ok) {
-                return response.json();
-              } else {
-                throw Error(`Error fetching ${url}`)
-              }
-            })
-            .then((json) => {
-              objects[id].geojson = JSON.stringify(json);
-              return Promise.resolve();
-            }); 
-        } else {
-          return Promise.resolve();
-        }
-      }))
-      .then(() => {
-        return objects;
-      });
-    })
+    // .then((objects) => {
+    //   return Promise.all(objects.map((object, id) => {
+    //     if (object.hasGeojson) {
+    //       const url = bucketUrl + object.hasGeojson;
+    //       return fetch(url)
+    //         .then((response) => {
+    //           if (response.ok) {
+    //             return response.json();
+    //           } else {
+    //             throw Error(`Error fetching ${url}`)
+    //           }
+    //         })
+    //         .then((json) => {
+    //           objects[id].geojson = JSON.stringify(json);
+    //           return Promise.resolve();
+    //         }); 
+    //     } else {
+    //       return Promise.resolve();
+    //     }
+    //   }))
+    //   .then(() => {
+    //     return objects;
+    //   });
+    // })
     .then((objects) => {
       const pageList = [];
       objects.filter((obj) => obj !== null)
