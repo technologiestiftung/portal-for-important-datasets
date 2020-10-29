@@ -4,3 +4,4 @@ node_modules
 utils/data/*
 config.json
 _site
+.env
