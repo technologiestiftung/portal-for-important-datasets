@@ -1,0 +1,108 @@
+{
+    "dcat:Catalog": {
+        "dct:title": [
+            "Daten"
+        ],
+        "dct:description": [
+            "Offene Daten zur Verfügung gestellt durch die Open Data Informationsstelle (ODIS)"
+        ],
+        "dct:publisher": {
+            "foaf:name": "Technologiestiftung Berlin"
+        },
+        "dct:issued": "2018-09-10",
+        "dcat:dataset": [
+            "https://daten.odis-berlin.de/dataset/Radverkehrszeichen/"
+        ],
+        "dct:isPartOf": [
+            "https://daten.odis-berlin.de"
+        ]
+    },
+    "dcat:Dataset": [
+        {
+            "dct:identifier": [
+                "https://daten.odis-berlin.de/dataset/Radverkehrszeichen/"
+            ],
+            "dct:title": [
+                "Radverkehrszeichen"
+            ],
+            "dct:description": [
+                "Aus dem Datensatz: Radverkehrsanlagen, inklusive Bussonderfahrstreifen<br />Original WFS Daten: https://fbinter.stadt-berlin.de/fb/wfs/data/senstadt/s_vms_radverkehrsanlagen_vz"
+            ],
+            "dcatde:originator": [
+                {
+                    "foaf:name": "Sebastian Meier",
+                    "dct:type": "http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/processor"
+                }
+            ],
+            "dcat:contactPoint": [
+                {
+                    "vcard:fn": "Sebastian Meier",
+                    "vcard:hasEmail": "mailto:meier@technologiestiftung-berlin.de"
+                }
+            ],
+            "dcat:keyword": [
+                
+                "geo",
+                "Verkehr",
+                "line"
+            ],
+            "dct:spatial": [
+                {
+                    "type": "Polygon",
+                    "crs": "urn:ogc:def:crs:OGC:1.3:CRS84",
+                    "coordinates": [
+                        [
+                            [
+                                13.088347614730992,
+                                52.338245549997296
+                            ],
+                            [
+                                13.761159145035254,
+                                52.338245549997296
+                            ],
+                            [
+                                13.761159145035254,
+                                52.67550765972353
+                            ],
+                            [
+                                13.088347614730992,
+                                52.67550765972353
+                            ],
+                            [
+                                13.088347614730992,
+                                52.338245549997296
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "dct:temporal": [
+            
+            ],
+            "dct:modified": "2018-09-10",
+            "dcat:distribution": [
+                
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.geojson.zip",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.gml",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.kml",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.shp.zip"
+            ],
+            "dct:license": [
+                "Nutzungsbedingungen: Für die Verwendung der Daten gelten folgende Nutzungsbestimmungen: http://www.stadtentwicklung.berlin.de/geoinformation/download/nutzIII.pdf - Der Quellenvermerk gemäß §2 lautet 'Geoportal Berlin / [Titel des Datensatzes]'. Es sind die datenschutzrechtlichen Bestimmungen, insbesondere das Bundesdatenschutzgesetz, zu beachten."
+            ],
+            "dcatde:politicalGeocodingLevelURI": [
+                "http://dcat-ap.de/def/politicalGeocoding/Level/state",
+                "http://dcat-ap.de/def/politicalGeocoding/Level/administrativeDistrict",
+                "http://dcat-ap.de/def/politicalGeocoding/Level/municipality",
+                ""
+            ],
+            "dcatde:politicalGeocodingURI": [
+                "http://dcat-ap.de/def/politicalGeocoding/stateKey/11",
+                "http://dcat-ap.de/def/politicalGeocoding/regionalKey/110000000000"
+            ],
+            "dcatde:geocodingText": [
+                "Berlin, Stadt"
+            ]
+        }
+    ]
+}
