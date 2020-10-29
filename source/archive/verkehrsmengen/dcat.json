@@ -11,7 +11,7 @@
         },
         "dct:issued": "2018-09-10",
         "dcat:dataset": [
-            "https://daten.odis-berlin.de/dataset/verkehrsmengen/"
+            "https://daten.odis-berlin.de/archive/verkehrsmengen/"
         ],
         "dct:isPartOf": [
             "https://daten.odis-berlin.de"
@@ -20,7 +20,7 @@
     "dcat:Dataset": [
         {
             "dct:identifier": [
-                "https://daten.odis-berlin.de/dataset/verkehrsmengen/"
+                "https://daten.odis-berlin.de/archive/verkehrsmengen/"
             ],
             "dct:title": [
                 "Verkehrsmengen 2014"

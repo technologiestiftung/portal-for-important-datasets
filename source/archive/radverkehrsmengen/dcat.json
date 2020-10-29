@@ -11,7 +11,7 @@
         },
         "dct:issued": "2018-09-10",
         "dcat:dataset": [
-            "https://daten.odis-berlin.de/dataset/radverkehrsmengen/"
+            "https://daten.odis-berlin.de/archive/radverkehrsmengen/"
         ],
         "dct:isPartOf": [
             "https://daten.odis-berlin.de"
@@ -20,7 +20,7 @@
     "dcat:Dataset": [
         {
             "dct:identifier": [
-                "https://daten.odis-berlin.de/dataset/radverkehrsmengen/"
+                "https://daten.odis-berlin.de/archive/radverkehrsmengen/"
             ],
             "dct:title": [
                 "Dauerzählstellen Fahrräder"
@@ -87,10 +87,10 @@
             "dct:modified": "2018-09-10",
             "dcat:distribution": [
                 
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/radverkehrsmengen/export.csv",
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/radverkehrsmengen/export.json",
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/radverkehrsmengen/location.json",
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/radverkehrsmengen/names_dict.json"
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrsmengen/export.csv",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrsmengen/export.json",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrsmengen/location.json",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrsmengen/names_dict.json"
             ],
             "dct:license": [
                 "Unbekannt."
