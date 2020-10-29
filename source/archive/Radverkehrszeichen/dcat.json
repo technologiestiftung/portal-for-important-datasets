@@ -82,10 +82,10 @@
             "dct:modified": "2018-09-10",
             "dcat:distribution": [
                 
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.geojson.zip",
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.gml",
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.kml",
-                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/Radverkehrszeichen/Radverkehrszeichen.shp.zip"
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrszeichen/Radverkehrszeichen.geojson.zip",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrszeichen/Radverkehrszeichen.gml",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrszeichen/Radverkehrszeichen.kml",
+                "https://tsb-opendata.s3.eu-central-1.amazonaws.com/0_archive/radverkehrszeichen/Radverkehrszeichen.shp.zip"
             ],
             "dct:license": [
                 "Nutzungsbedingungen: Für die Verwendung der Daten gelten folgende Nutzungsbestimmungen: http://www.stadtentwicklung.berlin.de/geoinformation/download/nutzIII.pdf - Der Quellenvermerk gemäß §2 lautet 'Geoportal Berlin / [Titel des Datensatzes]'. Es sind die datenschutzrechtlichen Bestimmungen, insbesondere das Bundesdatenschutzgesetz, zu beachten."
