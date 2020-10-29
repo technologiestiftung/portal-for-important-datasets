@@ -3,7 +3,7 @@ Basic site generator for a data repository.
 
 ## Setup
 
-Create a config.json based on the config.sample.json
+Create .env with your AWS bucketUrl, bucket, region, key and id.
 
 ```
 npm install
@@ -27,6 +27,11 @@ eleventyConfig.addPassthroughCopy("source/assets", "assets");
 Basic configs for the site, like baseUrl, etc.
 baseUrl is the most important, for local development set this to your localhost setup, for deployment, this needs to be set to the final url (https://data.odis-berlin.de). TODO: Check if there is a way to switch between the two automatically without need of changing them manually.
 It also contains an array of formatters, which translate abbreviations from the meta.json's into more readable form.
+
+### source/archive/
+
+This folder contains data that is no longer up to date, but must remain available, e.g. because it is linked in blogposts. They have to be inserted there manually. The data is stored in an extra archive folder in the S3 folder, which is not taken in the build process (see next paragraph).
+
 
 ### source/_data/dataset.js
 
