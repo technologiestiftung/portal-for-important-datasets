@@ -20,9 +20,6 @@
   clear: both;
 }
 
-p.copy {
-  font-family: "Roboto Mono", monospace;
-}
 
 #nav ul li.opendata.detail {
   border-right: none;
@@ -32,15 +29,15 @@ p.copy {
 #teaser-text {
   width: 100%;
   max-width: 700px;
-  margin: 50px auto;
+  margin: 10px auto;
 }
 
 #teaser-text p {
   padding: 20px 0 20px 0;
   width: 100%;
   max-width: 100%;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 22px;
   overflow: hidden;
 }
 
@@ -64,6 +61,11 @@ p.copy {
 
 #teaser.detail h1 {
   text-align: center;
+  font-family: 'Clan Medium', sans-serif;
+  font-size: 24px;
+  line-height: 140%;
+  margin-bottom: 2rem;
+  color: #000000; 
 }
 
 #teaser.detail #teaser-text {
@@ -138,7 +140,7 @@ p.copy {
 #sidebar ul ul li {
   padding: 3px 0 6px 30px;
   margin-left: 10px;
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -163,7 +165,7 @@ p.copy {
 }
 
 #search input {
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
   font-style: italic;
   float: left;
   width: 100%;
@@ -209,12 +211,12 @@ hr.clear.odclear-half {
 
 #list {
   margin-top: 30px;
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
 }
 
 #list > ul > li {
   display: block;
-  border-top: 3px solid #000;
+  /* border-top: 2px solid rgb(24, 61, 143); */
   padding: 10px 0;
   background-color: #fff;
   margin-bottom: 10px;
@@ -222,7 +224,10 @@ hr.clear.odclear-half {
 
 #list img {
   width: 108px;
-  margin: 0 10px;
+  margin: 15px 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   float: left;
 }
 
@@ -230,6 +235,7 @@ hr.clear.odclear-half {
   font-weight: bold;
   font-size: 18px;
   padding-bottom: 10px;
+  padding-right: 10px;
   display: block;
 }
 
@@ -250,8 +256,8 @@ hr.clear.odclear-half {
 #list span.col1,
 #list span.col2 {
   display: block;
-  clear: both;
-  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
   font-size: 12px;
   text-align: left;
 }
@@ -273,6 +279,7 @@ ul.meta-list .key {
   width: 30%;
   font-weight: bold;
   vertical-align: top;
+  line-height: 24px;
 }
 
 ul.meta-list .value {
@@ -281,6 +288,7 @@ ul.meta-list .value {
   width: 65%;
   font-weight: normal;
   word-wrap: break-word;
+  line-height: 24px;
 }
 
 #map {
@@ -291,14 +299,13 @@ ul.meta-list .value {
 .leaflet-popup-content {
   word-wrap: break-word;
 }
-
-@media (min-width: 500px) {
-  #list span.col1,
-  #list span.col2 {
-    padding: 0;
-    float: left;
-    width: 40%;
-    clear: none;
+@media (min-width: 320px) {
+  #list {
+    width: 90%;
+  }
+  .data-title {
+    padding-top: 20px;
+    padding-left: 10px;
   }
 }
 
@@ -311,10 +318,10 @@ ul.meta-list .value {
     clear: none;
     width: 60%;
   }
-
+  #list span.col1 {
+    width: 77%;}
   #list {
-    clear: right;
-    width: 60%;
+    width: 88%;
   }
 }
 
@@ -343,5 +350,33 @@ ul.meta-list .value {
 
   #list {
     width: 75%;
+  }
+}
+
+@media (max-width: 1200px) {
+  #list span.col2 {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+  #list img{
+    display:none;
+  }
+  .data-title {
+    padding-left: 20px;
+  }
+  #list span.col1,
+  #list span.col2 {
+    padding-left: 20px;
+  }
+  #teaser.detail img {
+    width: 350px;
+    float: none;
+    margin: 0;
+  }
+  .p-bottom.copy {
+    max-width: 320px;
+    word-wrap: break-word;
   }
 }
