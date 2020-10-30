@@ -388,11 +388,11 @@ svg.logo-opendata:hover polygon {
 }
 
 
-@-moz-document url-prefix() {
+/* @-moz-document url-prefix() {
   h1 {
     color: #fff; 
     font-size: 60px;
-  margin: 50px 0 50px 0;} }
+  margin: 50px 0 50px 0;} } */
 
 h1#title {
     font-family: 'Clan Medium', sans-serif;
