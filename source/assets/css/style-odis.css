@@ -800,9 +800,9 @@ a.blog-link {
       transform: translateY(2px) translateX(-1px) rotate(180deg);
       background-size: contain;
       content: ' ';
-      width: 9px;
+      width: 8px;
       position: absolute;
-      height: 15px;
+      height: 13px;
       left: 20px;
 }
 .blog-link:hover::after {
@@ -810,9 +810,9 @@ a.blog-link {
       background-size: contain;
       transform: translateY(2px) translateX(-1px) rotate(180deg);
       content: ' ';
-      width: 9px;
+      width: 8px;
       position: absolute;
-      height: 15px;
+      height: 13px;
       left: 20px;
 }
 a.blog-link {
