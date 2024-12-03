@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/technologiestiftung/data-repo#readme",
   "devDependencies": {
-    "@11ty/eleventy": "0.12.1",
+    "@11ty/eleventy": "2.0.1",
     "aws-sdk": "2.1515.0",
-    "node-fetch": "2.7.0"
+    "node-fetch": "3.3.2"
   },
   "dependencies": {
     "dotenv": "8.2.0"
